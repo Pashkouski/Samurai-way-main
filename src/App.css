@@ -14,27 +14,5 @@
 }
 
 
-.header {
-    grid-area: h;
-    background-color: beige;
-}
 
-.header img {
-    height: 60px;
-    width: 80px;
-}
 
-.nav {
-    grid-area: n;
-    background-color: azure;
-}
-
-.content {
-    grid-area: c;
-    background-color: darkcyan;
-
-}
-
-.content img {
-    width: 100%;
-}
