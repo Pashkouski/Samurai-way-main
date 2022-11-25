@@ -7,6 +7,11 @@
     color: brown;
 }
 
-.item.active {
-    color: wheat;
+.item a.active {
+    color: gold;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
 }
