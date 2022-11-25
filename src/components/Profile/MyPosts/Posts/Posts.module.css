@@ -1,0 +1,15 @@
+.item {
+    color: yellow;
+}
+
+.item img {
+    width: 50px;
+}
+.item {
+    display: flex;
+    gap: 5px;
+}
+
+.item button {
+    height: 20px;
+}
