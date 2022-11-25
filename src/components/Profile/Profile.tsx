@@ -5,7 +5,7 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
-                <div className={s.profile}>
+                <div>
             <div>
                 <img
                     src="https://png.pngtree.com/thumb_back/fw800/png-vector/20200530/ourmid/pngtree-great-wall-scenery-png-image_2214406.jpg"

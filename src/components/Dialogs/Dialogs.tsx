@@ -1,16 +1,16 @@
 import React from "react";
 import s from "./Dialogs.module.css"
 
-type DialogsPropType = {
+// type DialogsPropType = {
+//
+// }
 
-}
-
-const Dialogs = (props: any) => {
+const Dialogs = () => {
 
     return (
-        <>
+        <div>
         Dialogs
-        </>
+        </div>
     )
 
 
