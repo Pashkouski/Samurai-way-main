@@ -7,10 +7,15 @@ const MyPosts = () => {
         <div className={s.container}>
             <div>
                 My post
-                <textarea></textarea>
-                <button>
-                    Add post
-                </button>
+                <div>
+                    <textarea/>
+                </div>
+                <div>
+                    <button>
+                        Add post
+                    </button>
+                </div>
+
             </div>
             <div className={s.post}>
                 <Post message="Hi, how are you" count={121}/>

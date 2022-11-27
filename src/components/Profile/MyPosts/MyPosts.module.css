@@ -1,3 +1,7 @@
+.container {
+padding: 10px;
+}
+
 .post {
     display: grid;
     gap: 10px;
