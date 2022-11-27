@@ -3,7 +3,7 @@ import s from "./Posts.module.css"
 
 type PostPropsType = {
     message: string
-    count: number
+    likesCount: number
 }
 
 
@@ -12,8 +12,12 @@ const Posts = (props: PostPropsType) => {
         <div className={s.item}>
             <img src="https://bipbap.ru/wp-content/uploads/2021/07/1551512888_2-730x617.jpg" alt=""/>
             {props.message}
-            <button>{props.count} like</button>
-            <button>dislike </button>
+            <div>
+                <button> like {props.likesCount}</button>
+
+            </div>
+
+            <button> dislike </button>
         </div>
 
     )
