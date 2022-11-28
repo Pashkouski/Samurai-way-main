@@ -21,7 +21,7 @@ const Messages = () => {
         {id: 4, message: "bye"},
         {id: 5, message: "yo"}
     ]
-    
+
     let dialogsElements = dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
     let messagesElement = messages.map(m => <Dialog text={m.message}/>)
 

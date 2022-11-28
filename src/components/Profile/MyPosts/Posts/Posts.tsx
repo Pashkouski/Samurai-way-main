@@ -17,7 +17,7 @@ const Posts = (props: PostPropsType) => {
 
             </div>
 
-            <button> dislike </button>
+            <button> dislike</button>
         </div>
 
     )

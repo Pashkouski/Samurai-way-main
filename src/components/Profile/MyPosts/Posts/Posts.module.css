@@ -5,6 +5,7 @@
 .item img {
     width: 50px;
 }
+
 .item {
     display: flex;
     gap: 5px;
