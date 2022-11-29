@@ -8,8 +8,10 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
+import {MessagesPageType} from "./redux/state";
 
-function App() {
+
+function App(props: MessagesPageType) {
     return (
         <BrowserRouter>
             <div className='appWrapper'>
@@ -19,11 +21,12 @@ function App() {
 
                 <div className='appWrapperContent'>
 
-                    <Route path="/messages" component={Messages}/>
-                    <Route path="/profile" component={Profile}/>
+                    <Route path="/messages" render={() => <Messages dialogs={props.dialogs} messages={props.messages}/>}/>
+                    <Route path="/profile" render={() => <Profile/>}/>
                     <Route path="/News" component={News}/>
                     <Route path="/Music" component={Music}/>
                     <Route path="/Settings" component={Settings}/>
+
                 </div>
             </div>
         </BrowserRouter>
