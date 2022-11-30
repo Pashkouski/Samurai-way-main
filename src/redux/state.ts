@@ -16,14 +16,14 @@ export type postDataType = {
 export type profilePageType = {
     postData: Array<postDataType>
 }
-export type MessagesPageType = {
+export type messagesPageType = {
     dialogs: Array<dialogsType>
     messages: Array<messagesType>
 }
 
 export type RootStateType = {
     profilePage: profilePageType
-    MessagesPage: MessagesPageType
+    messagesPage: messagesPageType
 }
 
 let state = {
@@ -37,7 +37,7 @@ let state = {
         ]
     },
 
-    MessagesPage: {
+    messagesPage: {
         dialogs: [
             {id: 1, name: "Dimych"},
             {id: 2, name: "Sveta"},

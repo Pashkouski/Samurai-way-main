@@ -21,7 +21,7 @@ function App(props: RootStateType) {
 
                 <div className='appWrapperContent'>
 
-                    <Route path="/messages" render={() => <Messages dialogs={props.MessagesPage.dialogs} messages={props.MessagesPage.messages}/>}/>
+                    <Route path="/messages" render={() => <Messages dialogs={props.messagesPage.dialogs} messages={props.messagesPage.messages}/>}/>
                     <Route path="/profile" render={() => <Profile postData={props.profilePage.postData}/>}/>
                     <Route path="/News" component={News}/>
                     <Route path="/Music" component={Music}/>

@@ -7,7 +7,7 @@ import state from "./redux/state";
 
 
 ReactDOM.render(
-    <App MessagesPage={state.MessagesPage} profilePage={state.profilePage}/>,
+    <App messagesPage={state.messagesPage} profilePage={state.profilePage}/>,
   document.getElementById('root')
 );
 
