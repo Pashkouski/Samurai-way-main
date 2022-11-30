@@ -25,6 +25,9 @@ export type RootStateType = {
     profilePage: profilePageType
     messagesPage: messagesPageType
 }
+export type stateType = {
+    state: RootStateType
+}
 
 let state = {
     profilePage: {
