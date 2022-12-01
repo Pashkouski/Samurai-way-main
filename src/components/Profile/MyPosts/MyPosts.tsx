@@ -11,7 +11,7 @@ const MyPosts = (props: profilePageType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>()
 
     let addPost = () => {
-        alert(newPostElement.current?.value)
+
     }
     return (
         <div className={s.container}>

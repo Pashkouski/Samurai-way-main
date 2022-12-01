@@ -2,17 +2,25 @@ import React from "react";
 import s from './Messages.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Dialog from "./Dialog/Dialog";
-import {messagesPageType} from "../../redux/state";
+import {dialogsType, messagesPageType, messagesType} from "../../redux/state";
+
+type MessagesPropsType = {
+    dialogs: Array<dialogsType>
+    messages: Array<messagesType>
+    addPost: (str: string) => void
+}
 
 
-const Messages = (props: messagesPageType) => {
+const Messages = (props: MessagesPropsType) => {
     let dialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
     let messagesElement = props.messages.map(m => <Dialog text={m.message}/>);
 
     let newMessageElement = React.createRef<HTMLTextAreaElement>();
 
     let addMessage = () => {
-        alert(newMessageElement.current?.value);
+        if(newMessageElement.current) {
+            props.addPost(newMessageElement.current.value)
+        }
     }
 
     return (
