@@ -1,17 +1,24 @@
 import React from "react";
 import s from "./MyPosts.module.css"
 import Post from './Posts/Posts'
-import {profilePageType} from "../../../redux/state";
+import {postDataType, profilePageType} from "../../../redux/state";
+
+type ProfilePageType = {
+    postData: Array<postDataType>
+    addPost: (str: string) => void
+}
 
 
 
-const MyPosts = (props: profilePageType) => {
+const MyPosts = (props: ProfilePageType) => {
     let postsElements = props.postData.map(p => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     let newPostElement = React.createRef<HTMLTextAreaElement>()
 
     let addPost = () => {
-
+        if(newPostElement.current) {
+            props.addPost(newPostElement.current.value)
+        }
     }
     return (
         <div className={s.container}>

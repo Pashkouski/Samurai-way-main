@@ -8,15 +8,16 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
-import {messagesPageType, profilePageType, RootStateType} from "./redux/state";
+import {messagesPageType, profilePageType} from "./redux/state";
 
 type AppPropsType = {
     messagesPage: messagesPageType
     profilePage: profilePageType
     addPost: (srt: string) => void
+    addMessage: (str: string) => void
 }
 
-function App({messagesPage, profilePage, addPost}: AppPropsType) {
+function App({messagesPage, profilePage, addPost, addMessage}: AppPropsType) {
     return (
         <BrowserRouter>
             <div className='appWrapper'>
@@ -28,9 +29,11 @@ function App({messagesPage, profilePage, addPost}: AppPropsType) {
 
                     <Route path="/messages" render={() => <Messages dialogs={messagesPage.dialogs}
                                                                     messages={messagesPage.messages}
-                                                                    addPost={addPost}/>}/>
+                                                                    addMessage={addMessage}
+                    />}/>
 
-                    <Route path="/profile" render={() => <Profile postData={profilePage.postData}/>}/>
+                    <Route path="/profile" render={() => <Profile postData={profilePage.postData}
+                                                                  addPost={addPost}/>}/>
                     <Route path="/News" component={News}/>
                     <Route path="/Music" component={Music}/>
                     <Route path="/Settings" component={Settings}/>

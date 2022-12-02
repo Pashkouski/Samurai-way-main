@@ -1,3 +1,5 @@
+import {renderApp} from "../render";
+
 export type messagesType = {
     message: string
     id: number
@@ -61,7 +63,16 @@ export const addPost = (postText: string) => {
         likesCount: 0
     }
     state.profilePage.postData.push(newPost)
+    renderApp(state);
+}
 
+export const addMessage = (addMessage: string) => {
+    const newMessage: messagesType = {
+        id: 6,
+        message: addMessage
+    }
+    state.messagesPage.messages.push(newMessage)
+    renderApp(state);
 }
 
 export default state

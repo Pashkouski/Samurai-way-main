@@ -7,7 +7,7 @@ import {dialogsType, messagesPageType, messagesType} from "../../redux/state";
 type MessagesPropsType = {
     dialogs: Array<dialogsType>
     messages: Array<messagesType>
-    addPost: (str: string) => void
+    addMessage: (str: string) => void
 }
 
 
@@ -19,7 +19,7 @@ const Messages = (props: MessagesPropsType) => {
 
     let addMessage = () => {
         if(newMessageElement.current) {
-            props.addPost(newMessageElement.current.value)
+            props.addMessage(newMessageElement.current.value)
         }
     }
 
