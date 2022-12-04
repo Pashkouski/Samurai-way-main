@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./MyPosts.module.css"
 import Post from './Posts/Posts'
-import {postDataType, profilePageType} from "../../../redux/state";
+import {postDataType} from "../../../redux/state";
 
 type ProfilePageType = {
     postData: Array<postDataType>
@@ -20,7 +20,7 @@ const MyPosts = (props: ProfilePageType) => {
         props.addPost();
     }
 
-    let onPostChange = () => {
+    let updatePostText = () => {
         if (newPostElement.current) {
             props.updateNewPostText(newPostElement.current.value)
         }
@@ -31,7 +31,7 @@ const MyPosts = (props: ProfilePageType) => {
             <div>
                 My post
                 <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
+                    <textarea onChange={updatePostText} ref={newPostElement} value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>

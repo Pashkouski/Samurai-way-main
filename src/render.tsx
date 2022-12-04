@@ -11,8 +11,7 @@ export const renderApp = (state: RootStateType) => {
              profilePage={state.profilePage}
              addPost={addPost}
              addMessage={addMessage}
-             updateNewPostText={updateNewPostText}
-        />,
+             updateNewPostText={updateNewPostText}/>,
         document.getElementById('root')
     )
 }

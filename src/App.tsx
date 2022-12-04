@@ -30,13 +30,13 @@ function App({messagesPage, profilePage, addPost, addMessage}: AppPropsType) {
 
                     <Route path="/messages" render={() => <Messages dialogs={messagesPage.dialogs}
                                                                     messages={messagesPage.messages}
-                                                                    addMessage={addMessage}
-                    />}/>
+                                                                    addMessage={addMessage}/>}/>
 
                     <Route path="/profile" render={() => <Profile postData={profilePage.postData}
                                                                   addPost={addPost}
                                                                   newPostText={profilePage.newPostText}
                                                                   updateNewPostText={updateNewPostText}/>}/>
+
                     <Route path="/News" component={News}/>
                     <Route path="/Music" component={Music}/>
                     <Route path="/Settings" component={Settings}/>
@@ -45,7 +45,6 @@ function App({messagesPage, profilePage, addPost, addMessage}: AppPropsType) {
             </div>
         </BrowserRouter>
     );
-
 }
 
 

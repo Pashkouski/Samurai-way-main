@@ -2,7 +2,7 @@ import React from "react";
 import s from './Messages.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Dialog from "./Dialog/Dialog";
-import {dialogsType, messagesPageType, messagesType} from "../../redux/state";
+import {dialogsType, messagesType} from "../../redux/state";
 
 type MessagesPropsType = {
     dialogs: Array<dialogsType>
@@ -18,7 +18,7 @@ const Messages = (props: MessagesPropsType) => {
     let newMessageElement = React.createRef<HTMLTextAreaElement>();
 
     let addMessage = () => {
-        if(newMessageElement.current) {
+        if (newMessageElement.current) {
             props.addMessage(newMessageElement.current.value)
         }
     }
@@ -37,9 +37,11 @@ const Messages = (props: MessagesPropsType) => {
                 <div>
                     <textarea ref={newMessageElement}></textarea>
                 </div>
+
                 <div>
                     <button onClick={addMessage}>add message</button>
                 </div>
+
             </div>
         </div>
     )
