@@ -8,13 +8,14 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
-import {messagesPageType, profilePageType} from "./redux/state";
+import {messagesPageType, profilePageType, updateNewPostText} from "./redux/state";
 
 type AppPropsType = {
     messagesPage: messagesPageType
     profilePage: profilePageType
     addPost: (srt: string) => void
     addMessage: (str: string) => void
+    updateNewPostText: (str: string) => void
 }
 
 function App({messagesPage, profilePage, addPost, addMessage}: AppPropsType) {
@@ -33,7 +34,9 @@ function App({messagesPage, profilePage, addPost, addMessage}: AppPropsType) {
                     />}/>
 
                     <Route path="/profile" render={() => <Profile postData={profilePage.postData}
-                                                                  addPost={addPost}/>}/>
+                                                                  addPost={addPost}
+                                                                  newPostText={profilePage.newPostText}
+                                                                  updateNewPostText={updateNewPostText}/>}/>
                     <Route path="/News" component={News}/>
                     <Route path="/Music" component={Music}/>
                     <Route path="/Settings" component={Settings}/>
