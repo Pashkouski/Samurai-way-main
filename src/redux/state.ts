@@ -20,6 +20,7 @@ export type profilePageType = {
     newPostText: string
 }
 export type messagesPageType = {
+    newMessage: string
     dialogs: Array<dialogsType>
     messages: Array<messagesType>
 
@@ -55,7 +56,8 @@ let state = {
             {id: 3, message: "yo"},
             {id: 4, message: "bye"},
             {id: 5, message: "yo"}
-        ]
+        ],
+        newMessage: ''
     }
 }
 
@@ -75,12 +77,18 @@ export const updateNewPostText = (newText: string) => {
     renderApp(state);
 }
 
-export const addMessage = (addMessage: string) => {
+export const addMessage = () => {
     const newMessage: messagesType = {
         id: 6,
-        message: addMessage
+        message: state.messagesPage.newMessage
     }
     state.messagesPage.messages.push(newMessage)
+    state.messagesPage.newMessage = ''
+    renderApp(state);
+}
+
+export const addNewMessage = (newMessage: string) => {
+    state.messagesPage.newMessage = newMessage
     renderApp(state);
 }
 
