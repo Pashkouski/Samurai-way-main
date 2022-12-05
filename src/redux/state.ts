@@ -1,4 +1,8 @@
-import {renderApp} from "../render";
+let renderApp = (state: RootStateType) => {
+    console.log("abc")
+}
+
+
 
 export type messagesType = {
     message: string
@@ -90,6 +94,11 @@ export const addMessage = () => {
 export const addNewMessage = (newMessage: string) => {
     state.messagesPage.newMessage = newMessage
     renderApp(state);
+}
+
+
+export const subscribe = (observe: any) => {
+    renderApp = observe;
 }
 
 export default state
