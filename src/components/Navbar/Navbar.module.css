@@ -2,7 +2,7 @@
     grid-area: n;
     margin: 0 auto;
     padding: 5px;
-   }
+}
 
 .navigation {
     position: relative;
@@ -10,8 +10,7 @@
     height: 440px;
     background: #2f363e;
     box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
-    10px 10px 70px rgba(0, 0, 0, 0.25),
-    inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5),
     inset 5px 5px 20px rgba(0, 0, 0, 0.2),
     inset -5px -5px 15px rgba(0, 0, 0, 0.75);
     border-radius: 30px;
@@ -20,17 +19,12 @@
     align-items: start;
     justify-content: center;
     gap: 40px;
-
 }
 
 .item {
     position: relative;
     list-style: none;
-    /*width: 80px;*/
-
 }
-
-
 
 .item svg {
     position: absolute;
@@ -39,32 +33,28 @@
     border-radius: 50%;
     padding: 5px;
     margin: 10px;
-    bottom: -17px;
+    bottom: -15px;
     background: white;
-    box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
-    inset 2px 2px 3px rgba(255, 255, 255, 0.25),
+    box-shadow: 0 0 35px #ffffff, inset 2px 2px 3px rgba(255, 255, 255, 0.25),
     inset -3px -3px 5px rgba(0, 0, 0, 0.5);
-
 }
 
-a.active .iconSVG{
-    background: #3f3f3f;
+a.active .iconSVG {
+    background: #00fff2;
     transform: translate(80px, 15px);
-    box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
-    inset 2px 2px 3px rgba(255, 255, 255, 0.25),
-    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 35px #ffffff,
+        /*F67722FF*/ inset -5px -7px 11px rgba(0, 0, 0, 0.5);
     padding: 20px;
     bottom: -17px;
 }
 
-
 li a .iconSVG::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 10px;
     background: #2f363e;
     border-radius: 50%;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.5),
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5),
     inset 2px 2px 3px rgba(255, 255, 255, 0.25),
     inset -3px -3px 5px rgba(0, 0, 0, 0.5);
 }
@@ -76,11 +66,8 @@ li a .iconSVG::before {
     padding: 10px 2px;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.5),
-    inset 2px 2px 3px rgba(255, 255, 255, 0.25),
-    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 35px #fff, inset -3px -3px 5px rgba(0, 0, 0, 0.5);
     opacity: 0;
-
 }
 
 .navigation li a.active span {
@@ -93,5 +80,4 @@ li a .iconSVG::before {
 a {
     text-decoration: none;
     font-weight: bold;
-
 }
