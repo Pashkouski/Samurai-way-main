@@ -1,22 +1,22 @@
-import React from 'react';
-import './index.css';
-import state, {addMessage, addPost, RootStateType, subscribe, updateNewPostText} from "./redux/state";
+import React from "react";
+import "./index.css";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { RootStateType, store } from "./redux/state";
 
+const renderApp = (state: RootStateType) => {
+  ReactDOM.render(
+    <App
+      messagesPage={state.messagesPage}
+      profilePage={state.profilePage}
+      addPost={store.addPost.bind(store)}
+      addMessage={store.addMessage.bind(store)}
+      updateNewPostText={store.updateNewPostText.bind(store)}
+      addNewMessage={store.addNewMessage.bind(store)}
+    />,
+    document.getElementById("root")
+  );
+};
 
-let renderApp = (state: RootStateType) => {
-    ReactDOM.render(
-        <App messagesPage={state.messagesPage}
-             profilePage={state.profilePage}
-             addPost={addPost}
-             addMessage={addMessage}
-             updateNewPostText={updateNewPostText}/>,
-        document.getElementById('root')
-    )
-}
-
-
-renderApp(state);
-
-subscribe(renderApp);
+renderApp(store.getState());
+store.subscribe(renderApp);
