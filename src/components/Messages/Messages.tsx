@@ -2,13 +2,17 @@ import React from 'react'
 import s from './Messages.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Dialog from './Dialog/Dialog'
-import { dialogsType, DispatchType, messagesType } from '../../redux/state'
+import {
+	addMessageAC,
+	addNewMessageAC,
+	dialogsType,
+	DispatchType,
+	messagesType
+} from '../../redux/state'
 
 type MessagesPropsType = {
 	dialogs: Array<dialogsType>
 	messages: Array<messagesType>
-	// addMessage: () => void
-	// addNewMessage: (str: string) => void
 	newMessage: string
 	dispatch: (action: DispatchType) => void
 }
@@ -22,11 +26,11 @@ const Messages = (props: MessagesPropsType) => {
 	let newMessageElement = React.createRef<HTMLTextAreaElement>()
 
 	let addMessage = () => {
-		props.dispatch({ type: 'ADD-MESSAGE' })
+		props.dispatch(addMessageAC())
 	}
 	let addNewMessage = () => {
 		if (newMessageElement.current) {
-			props.dispatch({type: "ADD-NEW-MESSAGE", newMessage: newMessageElement.current.value})
+			props.dispatch(addNewMessageAC(newMessageElement.current.value))
 		}
 	}
 

@@ -42,20 +42,29 @@ export type DispatchType =
 	| AddMessageType
 	| AddNewMessageType
 
-export type addPosts = {
-	type: 'ADD-POSTS'
-}
-export type updateNewPostText = {
-	type: 'UPDATE-NEW-POST-TEXT'
-	newText: string
-}
-export type AddMessageType = {
-	type: 'ADD-MESSAGE'
-}
-export type AddNewMessageType = {
-	type: 'ADD-NEW-MESSAGE'
-	newMessage: string
-}
+export type addPosts = ReturnType<typeof addPostsAC>
+export type updateNewPostText = ReturnType<typeof updateNewPostTextAC>
+export type AddMessageType = ReturnType<typeof addMessageAC>
+export type AddNewMessageType = ReturnType<typeof addNewMessageAC>
+
+export const updateNewPostTextAC = (newText: string) =>
+	({
+		type: 'UPDATE-NEW-POST-TEXT',
+		newText: newText
+	} as const)
+export const addPostsAC = () =>
+	({
+		type: 'ADD-POSTS'
+	} as const)
+export const addMessageAC = () =>
+	({
+		type: 'ADD-MESSAGE'
+	} as const)
+export const addNewMessageAC = (newMessage: string) =>
+	({
+		type: 'ADD-NEW-MESSAGE',
+		newMessage: newMessage
+	} as const)
 
 export let store: StoreType = {
 	_state: {
@@ -87,7 +96,6 @@ export let store: StoreType = {
 			newMessage: ''
 		}
 	},
-
 	_addPost() {
 		const newPost: postDataType = {
 			id: 6,

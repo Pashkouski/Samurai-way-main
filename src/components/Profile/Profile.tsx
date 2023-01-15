@@ -8,7 +8,6 @@ type ProfilePageType = {
 	postData: Array<postDataType>
 	newPostText: string
 	dispatch: (action: DispatchType) => void
-	// updateNewPostText: (str: string) => void;
 }
 
 const Profile = (props: ProfilePageType) => {
@@ -20,7 +19,6 @@ const Profile = (props: ProfilePageType) => {
 				postData={props.postData}
 				dispatch={props.dispatch}
 				newPostText={props.newPostText}
-				// updateNewPostText={props.updateNewPostText}
 			/>
 		</div>
 	)

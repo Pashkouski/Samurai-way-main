@@ -14,9 +14,6 @@ type AppPropsType = {
 	messagesPage: messagesPageType
 	profilePage: profilePageType
 	dispatch: (action: DispatchType) => void
-	// addMessage: () => void
-	// updateNewPostText: (str: string) => void;
-	// addNewMessage: (newMessage: string) => void
 }
 
 function App({ messagesPage, profilePage, dispatch }: AppPropsType) {
@@ -33,8 +30,6 @@ function App({ messagesPage, profilePage, dispatch }: AppPropsType) {
 							<Messages
 								dialogs={messagesPage.dialogs}
 								messages={messagesPage.messages}
-								// addMessage={addMessage}
-								// addNewMessage={addNewMessage}
 								newMessage={messagesPage.newMessage}
 								dispatch={dispatch}
 							/>
@@ -48,7 +43,6 @@ function App({ messagesPage, profilePage, dispatch }: AppPropsType) {
 								postData={profilePage.postData}
 								dispatch={dispatch}
 								newPostText={profilePage.newPostText}
-								// updateNewPostText={updateNewPostText}
 							/>
 						)}
 					/>
