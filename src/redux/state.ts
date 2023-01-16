@@ -1,3 +1,6 @@
+import { ProfilePageReducer } from './profile-Page-Reducer'
+import { MessagesPageReducer } from './messages-Page-Reducer'
+
 export type messagesType = {
 	message: string
 	id: number
@@ -133,15 +136,18 @@ export let store: StoreType = {
 		return this._state
 	},
 	dispatch(action) {
-		if (action.type === 'ADD-POSTS') {
-			this._addPost()
-		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-			this._updateNewPostText(action.newText)
-		} else if (action.type === 'ADD-MESSAGE') {
-			this._addMessage()
-		} else if (action.type === 'ADD-NEW-MESSAGE') {
-			this._addNewMessage(action.newMessage)
-		}
+		ProfilePageReducer(this._state.profilePage, action)
+		MessagesPageReducer(this._state.messagesPage, action)
+		this._renderApp(this._state)
+		// if (action.type === 'ADD-POSTS') {
+		// 	this._addPost()
+		// } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+		// 	this._updateNewPostText(action.newText)
+		// } else if (action.type === 'ADD-MESSAGE') {
+		// 	this._addMessage()
+		// } else if (action.type === 'ADD-NEW-MESSAGE') {
+		// 	this._addNewMessage(action.newMessage)
+		// }
 	}
 }
 // window.store = store
