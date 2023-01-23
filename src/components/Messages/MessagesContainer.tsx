@@ -10,30 +10,32 @@ import {
     messagesType
 } from '../../redux/store'
 import Messages from "./Messages";
+import {StoreReduxType} from "../../redux/redux-store";
 
 type MessagesPropsContainerType = {
-    dialogs: Array<dialogsType>
-    messages: Array<messagesType>
-    newMessage: string
-    dispatch: (action: DispatchType) => void
+    // dialogs: Array<dialogsType>
+    // messages: Array<messagesType>
+    // newMessage: string
+    // dispatch: (action: DispatchType) => void
+    store: StoreReduxType
 }
 
 const MessagesPropsContainer  = (props: MessagesPropsContainerType) => {
 
 
     let addMessage = () => {
-        props.dispatch(addMessageAC())
+        props.store.dispatch(addMessageAC())
     }
     let addNewMessage = (body: string) => {
-            props.dispatch(addNewMessageAC(body))
+            props.store.dispatch(addNewMessageAC(body))
     }
 
     return (
      <Messages addNewMessage={addNewMessage}
                addMessage={addMessage}
-               messages={props.messages}
-               dialogs={props.dialogs}
-               newMessage={props.newMessage}
+               messages={props.store.getState().messagesPage.messages}
+               dialogs={props.store.getState().messagesPage.dialogs}
+               newMessage={props.store.getState().messagesPage.newMessage}
 
      />
     )

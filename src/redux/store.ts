@@ -50,6 +50,9 @@ export type updateNewPostText = ReturnType<typeof updateNewPostTextAC>
 export type AddMessageType = ReturnType<typeof addMessageAC>
 export type AddNewMessageType = ReturnType<typeof addNewMessageAC>
 
+export type ActionType = addPosts | updateNewPostText | AddMessageType| AddNewMessageType
+
+
 export const updateNewPostTextAC = (newText: string) =>
 	({
 		type: 'UPDATE-NEW-POST-TEXT',

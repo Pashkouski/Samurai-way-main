@@ -7,28 +7,27 @@ import {
 	updateNewPostTextAC
 } from '../../../redux/store'
 import MyPosts from "./MyPosts";
+import {StoreReduxType} from "../../../redux/redux-store";
 
 type ProfilePageContainerType = {
-	postData: Array<postDataType>
-	dispatch: (action: DispatchType) => void
-	newPostText: string
+	store: StoreReduxType
 }
 
 const MyPostsContainer = (props: ProfilePageContainerType) => {
 
 	let addPost = () => {
-		props.dispatch(addPostsAC())
+		props.store.dispatch(addPostsAC())
 	}
 
 	let updatePostText = (text: string) => {
-		props.dispatch(updateNewPostTextAC(text))
+		props.store.dispatch(updateNewPostTextAC(text))
 	}
 
 	return (
 		<MyPosts updatePostText={updatePostText}
 				 addPost={addPost}
-				 postData={props.postData}
-				 newPostText={props.newPostText}
+				 postData={props.store.getState().profilePage.postData}
+				 newPostText={props.store.getState().profilePage.newPostText}
 		/>
 	)
 }

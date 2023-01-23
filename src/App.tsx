@@ -7,55 +7,56 @@ import Messages from './components/Messages/Messages'
 import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
-import { BrowserRouter, Route } from 'react-router-dom'
-import { DispatchType, messagesPageType, profilePageType } from './redux/store'
+import {BrowserRouter, Route} from 'react-router-dom'
+import {DispatchType, messagesPageType, profilePageType, RootStateType} from './redux/store'
 import MessagesPropsContainer from "./components/Messages/MessagesContainer";
+import {StoreReduxType} from "./redux/redux-store";
 
 type AppPropsType = {
-	messagesPage: messagesPageType
-	profilePage: profilePageType
-	dispatch: (action: DispatchType) => void
+    store: StoreReduxType
 }
 
 
-function App({ messagesPage, profilePage, dispatch }: AppPropsType) {
-	return (
-		<BrowserRouter>
-			<div className='appWrapper'>
-				<Header />
-				<Navbar />
+function App(props: AppPropsType) {
+    return (
+        <BrowserRouter>
+            <div className='appWrapper'>
+                <Header/>
+                <Navbar/>
 
-				<div className='appWrapperContent'>
-					<Route
-						path='/messages'
-						render={() => (
-							<MessagesPropsContainer
-								dialogs={messagesPage.dialogs}
-								messages={messagesPage.messages}
-								newMessage={messagesPage.newMessage}
-								dispatch={dispatch}
-							/>
-						)}
-					/>
+                <div className='appWrapperContent'>
+                    <Route
+                        path='/messages'
+                        render={() => (
+                            <MessagesPropsContainer
+                                store={props.store}
+                                // dialogs={messagesPage.dialogs}
+                                // messages={messagesPage.messages}
+                                // newMessage={messagesPage.newMessage}
+                                // dispatch={dispatch}
+                            />
+                        )}
+                    />
 
-					<Route
-						path='/profile'
-						render={() => (
-							<Profile
-								postData={profilePage.postData}
-								dispatch={dispatch}
-								newPostText={profilePage.newPostText}
-							/>
-						)}
-					/>
+                    <Route
+                        path='/profile'
+                        render={() => (
+                            <Profile
+                                store={props.store}
+                                // postData={profilePage.postData}
+                                // dispatch={dispatch}
+                                // newPostText={profilePage.newPostText}
+                            />
+                        )}
+                    />
 
-					<Route path='/News' component={News} />
-					<Route path='/Music' component={Music} />
-					<Route path='/Settings' component={Settings} />
-				</div>
-			</div>
-		</BrowserRouter>
-	)
+                    <Route path='/News' component={News}/>
+                    <Route path='/Music' component={Music}/>
+                    <Route path='/Settings' component={Settings}/>
+                </div>
+            </div>
+        </BrowserRouter>
+    )
 }
 
 export default App
