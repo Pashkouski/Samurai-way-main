@@ -12,12 +12,12 @@ import {DispatchType, messagesPageType, profilePageType, RootStateType} from './
 import MessagesPropsContainer from "./components/Messages/MessagesContainer";
 import {StoreReduxType} from "./redux/redux-store";
 
-type AppPropsType = {
-    store: StoreReduxType
-}
+// type AppPropsType = {
+//     store: StoreReduxType
+// }
 
 
-function App(props: AppPropsType) {
+function App() {
     return (
         <BrowserRouter>
             <div className='appWrapper'>
@@ -29,7 +29,7 @@ function App(props: AppPropsType) {
                         path='/messages'
                         render={() => (
                             <MessagesPropsContainer
-                                store={props.store}
+                                // store={props.store}
                                 // dialogs={messagesPage.dialogs}
                                 // messages={messagesPage.messages}
                                 // newMessage={messagesPage.newMessage}
@@ -42,7 +42,7 @@ function App(props: AppPropsType) {
                         path='/profile'
                         render={() => (
                             <Profile
-                                store={props.store}
+                                // store={props.store}
                                 // postData={profilePage.postData}
                                 // dispatch={dispatch}
                                 // newPostText={profilePage.newPostText}

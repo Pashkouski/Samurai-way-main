@@ -11,33 +11,42 @@ import {
 } from '../../redux/store'
 import Messages from "./Messages";
 import {StoreReduxType} from "../../redux/redux-store";
+import {StoreContext} from "../../StoreContext";
 
-type MessagesPropsContainerType = {
-    // dialogs: Array<dialogsType>
-    // messages: Array<messagesType>
-    // newMessage: string
-    // dispatch: (action: DispatchType) => void
-    store: StoreReduxType
-}
+// type MessagesPropsContainerType = {
+//     // dialogs: Array<dialogsType>
+//     // messages: Array<messagesType>
+//     // newMessage: string
+//     // dispatch: (action: DispatchType) => void
+//     store: StoreReduxType
+// }
 
-const MessagesPropsContainer  = (props: MessagesPropsContainerType) => {
-
-
-    let addMessage = () => {
-        props.store.dispatch(addMessageAC())
-    }
-    let addNewMessage = (body: string) => {
-            props.store.dispatch(addNewMessageAC(body))
-    }
+const MessagesPropsContainer = () => {
 
     return (
-     <Messages addNewMessage={addNewMessage}
-               addMessage={addMessage}
-               messages={props.store.getState().messagesPage.messages}
-               dialogs={props.store.getState().messagesPage.dialogs}
-               newMessage={props.store.getState().messagesPage.newMessage}
 
-     />
+        <StoreContext.Consumer>
+            {
+
+                (store) => {
+                    const addMessage = () => {
+                        store.dispatch(addMessageAC())
+                    }
+                    const addNewMessage = (body: string) => {
+                        store.dispatch(addNewMessageAC(body))
+                    }
+                    return (
+                        <Messages addNewMessage={addNewMessage}
+                                  addMessage={addMessage}
+                                  messages={store.getState().messagesPage.messages}
+                                  dialogs={store.getState().messagesPage.dialogs}
+                                  newMessage={store.getState().messagesPage.newMessage}
+
+                        />
+                    )
+                }
+            }
+        </StoreContext.Consumer>
     )
 }
 

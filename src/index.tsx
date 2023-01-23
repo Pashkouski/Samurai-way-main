@@ -2,21 +2,24 @@ import React from 'react'
 import './index.css'
 import ReactDOM from 'react-dom'
 import App from './App'
-import {RootStateType} from "./redux/store";
-import {store, StoreReduxType} from './redux/redux-store'
+import {store} from './redux/redux-store'
+
+import {Provider} from "react-redux";
 
 
-const renderApp = (store: StoreReduxType) => {
-    debugger
+const renderApp = () => {
+
     ReactDOM.render(
-        <App
-            store={store}
-        />,
+        <Provider store={store}>
+            <App />
+        </Provider>,
         document.getElementById('root')
     )
 }
 
-renderApp(store)
+
+renderApp()
 store.subscribe(() => {
-    renderApp(store)
+    renderApp()
 })
+
