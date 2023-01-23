@@ -8,13 +8,14 @@ import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import { BrowserRouter, Route } from 'react-router-dom'
-import { DispatchType, messagesPageType, profilePageType } from './redux/state'
+import { DispatchType, messagesPageType, profilePageType } from './redux/store'
 
 type AppPropsType = {
 	messagesPage: messagesPageType
 	profilePage: profilePageType
 	dispatch: (action: DispatchType) => void
 }
+
 
 function App({ messagesPage, profilePage, dispatch }: AppPropsType) {
 	return (

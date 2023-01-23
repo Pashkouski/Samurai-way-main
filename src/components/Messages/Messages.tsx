@@ -8,7 +8,7 @@ import {
 	dialogsType,
 	DispatchType,
 	messagesType
-} from '../../redux/state'
+} from '../../redux/store'
 
 type MessagesPropsType = {
 	dialogs: Array<dialogsType>

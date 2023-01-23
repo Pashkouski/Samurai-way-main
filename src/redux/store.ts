@@ -55,14 +55,17 @@ export const updateNewPostTextAC = (newText: string) =>
 		type: 'UPDATE-NEW-POST-TEXT',
 		newText: newText
 	} as const)
+
 export const addPostsAC = () =>
 	({
 		type: 'ADD-POSTS'
 	} as const)
+
 export const addMessageAC = () =>
 	({
 		type: 'ADD-MESSAGE'
 	} as const)
+
 export const addNewMessageAC = (newMessage: string) =>
 	({
 		type: 'ADD-NEW-MESSAGE',
@@ -139,15 +142,6 @@ export let store: StoreType = {
 		ProfilePageReducer(this._state.profilePage, action)
 		MessagesPageReducer(this._state.messagesPage, action)
 		this._renderApp(this._state)
-		// if (action.type === 'ADD-POSTS') {
-		// 	this._addPost()
-		// } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-		// 	this._updateNewPostText(action.newText)
-		// } else if (action.type === 'ADD-MESSAGE') {
-		// 	this._addMessage()
-		// } else if (action.type === 'ADD-NEW-MESSAGE') {
-		// 	this._addNewMessage(action.newMessage)
-		// }
 	}
 }
 // window.store = store

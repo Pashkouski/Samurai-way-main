@@ -1,8 +1,21 @@
-import React from 'react'
-import { DispatchType, postDataType, profilePageType } from './state'
+import { DispatchType, postDataType, profilePageType } from './store'
+
+
+
+
+let initialState: profilePageType = {
+	postData: [
+		{ id: 1, message: 'Hi, how are you', likesCount: 12 },
+		{ id: 2, message: "It's my first post", likesCount: 1 },
+		{ id: 2, message: "It's my first post", likesCount: 1 },
+		{ id: 2, message: "It's my first post", likesCount: 1 }
+	],
+	newPostText: ''
+}
+
 
 export const ProfilePageReducer = (
-	state: profilePageType,
+	state: profilePageType = initialState,
 	action: DispatchType
 ) => {
 	switch (action.type) {
@@ -14,12 +27,11 @@ export const ProfilePageReducer = (
 			}
 			state.postData.push(newPost)
 			state.newPostText = ''
-			// this._renderApp(this._state)
-			break
+			return state
 		case 'UPDATE-NEW-POST-TEXT':
 			state.newPostText = action.newText
-			// this._renderApp(this._state)
-			break
+			return state
+		default:
+			return state
 	}
-	return state
 }

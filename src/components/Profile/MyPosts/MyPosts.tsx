@@ -6,7 +6,7 @@ import {
 	DispatchType,
 	postDataType,
 	updateNewPostTextAC
-} from '../../../redux/state'
+} from '../../../redux/store'
 
 type ProfilePageType = {
 	postData: Array<postDataType>
