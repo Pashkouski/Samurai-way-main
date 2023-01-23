@@ -9,8 +9,9 @@ import {
 } from '../../../redux/store'
 
 type ProfilePageType = {
+	updatePostText: (text: string) => void
+	addPost: () => void
 	postData: Array<postDataType>
-	dispatch: (action: DispatchType) => void
 	newPostText: string
 }
 
@@ -21,13 +22,14 @@ const MyPosts = (props: ProfilePageType) => {
 
 	let newPostElement = React.createRef<HTMLTextAreaElement>()
 
-	let addPost = () => {
-		props.dispatch(addPostsAC())
+	let addPostHandler = () => {
+		props.addPost()
 	}
 
-	let updatePostText = () => {
+	let onChangeHandler = () => {
 		if (newPostElement.current) {
-			props.dispatch(updateNewPostTextAC(newPostElement.current.value))
+			let text = newPostElement.current.value
+			props.updatePostText(text)
 		}
 	}
 
@@ -37,13 +39,13 @@ const MyPosts = (props: ProfilePageType) => {
 				My post
 				<div>
 					<textarea
-						onChange={updatePostText}
+						onChange={onChangeHandler}
 						ref={newPostElement}
 						value={props.newPostText}
 					/>
 				</div>
 				<div>
-					<button onClick={addPost}>Add post</button>
+					<button onClick={addPostHandler}>Add post</button>
 				</div>
 			</div>
 			<div className={s.post}>{postsElements}</div>

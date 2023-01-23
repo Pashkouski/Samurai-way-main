@@ -3,6 +3,7 @@ import s from './Profile.module.css'
 import MyPosts from './MyPosts/MyPosts'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 import { addPosts, DispatchType, postDataType } from '../../redux/store'
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 type ProfilePageType = {
 	postData: Array<postDataType>
@@ -15,7 +16,7 @@ const Profile = (props: ProfilePageType) => {
 		<div>
 			<ProfileInfo />
 
-			<MyPosts
+			<MyPostsContainer
 				postData={props.postData}
 				dispatch={props.dispatch}
 				newPostText={props.newPostText}

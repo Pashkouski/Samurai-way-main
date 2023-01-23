@@ -9,6 +9,7 @@ import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { DispatchType, messagesPageType, profilePageType } from './redux/store'
+import MessagesPropsContainer from "./components/Messages/MessagesContainer";
 
 type AppPropsType = {
 	messagesPage: messagesPageType
@@ -28,7 +29,7 @@ function App({ messagesPage, profilePage, dispatch }: AppPropsType) {
 					<Route
 						path='/messages'
 						render={() => (
-							<Messages
+							<MessagesPropsContainer
 								dialogs={messagesPage.dialogs}
 								messages={messagesPage.messages}
 								newMessage={messagesPage.newMessage}

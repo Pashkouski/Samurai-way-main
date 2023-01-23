@@ -83,7 +83,6 @@ export let store: StoreType = {
 			],
 			newPostText: ''
 		},
-
 		messagesPage: {
 			dialogs: [
 				{ id: 1, name: 'Dimych' },
