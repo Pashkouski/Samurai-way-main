@@ -7,13 +7,9 @@ import {
 	postDataType,
 	updateNewPostTextAC
 } from '../../../redux/store'
+import {mapDispatchToPropsType, mapStateToPropsType} from "./MyPostsContainer";
 
-type ProfilePageType = {
-	updatePostText: (text: string) => void
-	addPost: () => void
-	postData: Array<postDataType>
-	newPostText: string
-}
+type ProfilePageType = mapStateToPropsType & mapDispatchToPropsType
 
 const MyPosts = (props: ProfilePageType) => {
 	let postsElements = props.postData.map(p => (

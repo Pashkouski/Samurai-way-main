@@ -2,21 +2,10 @@ import React from 'react'
 import s from './Messages.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Dialog from './Dialog/Dialog'
-import {
-    addMessageAC,
-    addNewMessageAC,
-    dialogsType,
-    DispatchType,
-    messagesType
-} from '../../redux/store'
 
-type MessagesPropsType = {
-    addNewMessage: (body: string) => void
-    addMessage: () => void
-    dialogs: Array<dialogsType>
-    messages: Array<messagesType>
-    newMessage: string
-}
+import {mapDispatchToPropsType, mapStateToPropsType} from "./MessagesContainer";
+
+export type MessagesPropsType = mapStateToPropsType & mapDispatchToPropsType
 
 const Messages = (props: MessagesPropsType) => {
     let dialogsElements = props.dialogs.map(d => (
@@ -59,3 +48,4 @@ const Messages = (props: MessagesPropsType) => {
 }
 
 export default Messages
+
