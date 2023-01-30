@@ -31,12 +31,11 @@ export const MessagesPageReducer = (
 				"id": 6,
 				"message": state.newMessage
 			}
-			state.messages.push(newMessage)
-			state.newMessage = ''
-		return state
+		return {...state, messages: [...state.messages, newMessage], newMessage: ''}
+
 		case 'ADD-NEW-MESSAGE':
-			state.newMessage = action.newMessage
-			return state
+			// state.newMessage = action.newMessage
+			return {...state, newMessage: action.newMessage}
 		default:
 			return state
 

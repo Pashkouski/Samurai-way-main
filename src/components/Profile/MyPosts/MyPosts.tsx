@@ -1,12 +1,6 @@
 import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Posts/Posts'
-import {
-	addPostsAC,
-	DispatchType,
-	postDataType,
-	updateNewPostTextAC
-} from '../../../redux/store'
 import {mapDispatchToPropsType, mapStateToPropsType} from "./MyPostsContainer";
 
 type ProfilePageType = mapStateToPropsType & mapDispatchToPropsType

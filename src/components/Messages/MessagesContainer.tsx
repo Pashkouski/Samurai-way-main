@@ -26,8 +26,7 @@ const mapStateToProps = (state: StoreReduxType) : mapStateToPropsType => {
         dialogs: state.messagesPage.dialogs,
         messages: state.messagesPage.messages
     }
-}
-//{ type: "ADD-MESSAGE" | "ADD-NEW-MESSAGE"; newMessage?: string; }  === DispatchType    /*найти как сократить, понятно но много...*/
+}//{ type: "ADD-MESSAGE" | "ADD-NEW-MESSAGE"; newMessage?: string; }  === DispatchType    /*найти как сократить, понятно но много...*/
 
 
 const mapDispatchToProps = (dispatch:(action: DispatchType) => void) : mapDispatchToPropsType=> {
