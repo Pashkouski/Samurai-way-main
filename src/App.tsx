@@ -3,18 +3,12 @@ import './App.css'
 import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import Profile from './components/Profile/Profile'
-import Messages from './components/Messages/Messages'
 import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import {BrowserRouter, Route} from 'react-router-dom'
-import {DispatchType, messagesPageType, profilePageType, RootStateType} from './redux/store'
 import MessagesPropsContainer from "./components/Messages/MessagesContainer";
-import {StoreReduxType} from "./redux/redux-store";
-
-// type AppPropsType = {
-//     store: StoreReduxType
-// }
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 function App() {
@@ -29,11 +23,7 @@ function App() {
                         path='/messages'
                         render={() => (
                             <MessagesPropsContainer
-                                // store={props.store}
-                                // dialogs={messagesPage.dialogs}
-                                // messages={messagesPage.messages}
-                                // newMessage={messagesPage.newMessage}
-                                // dispatch={dispatch}
+
                             />
                         )}
                     />
@@ -42,10 +32,15 @@ function App() {
                         path='/profile'
                         render={() => (
                             <Profile
-                                // store={props.store}
-                                // postData={profilePage.postData}
-                                // dispatch={dispatch}
-                                // newPostText={profilePage.newPostText}
+
+                            />
+                        )}
+                    />
+                    <Route
+                        path='/users'
+                        render={() => (
+                            <UsersContainer
+
                             />
                         )}
                     />

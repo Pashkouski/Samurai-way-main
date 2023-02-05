@@ -1,5 +1,19 @@
-import { DispatchType, messagesPageType, messagesType } from './store'
+import { DispatchType} from './store'
 
+
+export type messagesPageType = {
+    newMessage: string
+    dialogs: Array<dialogsType>
+    messages: Array<messagesType>
+}
+export type dialogsType = {
+	name: string
+	id: number
+}
+export type messagesType = {
+	message: string
+	id: number
+}
 
 
 

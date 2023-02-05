@@ -1,11 +1,12 @@
 import React from 'react'
 import {
-    addPostsAC, DispatchType, postDataType,
+    addPostsAC, DispatchType,
     updateNewPostTextAC
 } from '../../../redux/store'
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 import {StoreReduxType} from "../../../redux/redux-store";
+import {postDataType} from "../../../redux/profile-Page-Reducer";
 
 
 export type mapStateToPropsType = {

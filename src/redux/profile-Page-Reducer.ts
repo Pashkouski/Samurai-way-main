@@ -1,6 +1,14 @@
-import { DispatchType, postDataType, profilePageType } from './store'
+import { DispatchType} from './store'
 
-
+export type postDataType = {
+    likesCount: number
+    message: string
+    id: number
+}
+export type profilePageType = {
+    postData: Array<postDataType>
+    newPostText: string
+}
 
 
 let initialState: profilePageType = {
