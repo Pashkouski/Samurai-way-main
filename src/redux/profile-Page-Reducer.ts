@@ -1,4 +1,4 @@
-import { DispatchType} from './store'
+import {DispatchType} from "./redux-store";
 
 export type postDataType = {
     likesCount: number
@@ -42,3 +42,19 @@ export const ProfilePageReducer = (
 			return state
 	}
 }
+
+
+export type addPosts = ReturnType<typeof addPostsAC>
+export type updateNewPostText = ReturnType<typeof updateNewPostTextAC>
+
+
+export const updateNewPostTextAC = (newText: string) =>
+	({
+		type: 'UPDATE-NEW-POST-TEXT',
+		newText: newText
+	} as const)
+
+export const addPostsAC = () =>
+	({
+		type: 'ADD-POSTS'
+	} as const)

@@ -1,4 +1,4 @@
-import { DispatchType} from './store'
+import {DispatchType} from "./redux-store";
 
 
 export type messagesPageType = {
@@ -55,3 +55,23 @@ export const MessagesPageReducer = (
 
 	}
 }
+
+
+
+export type AddMessageType = ReturnType<typeof addMessageAC>
+export type AddNewMessageType = ReturnType<typeof addNewMessageAC>
+
+
+
+export const addMessageAC = () =>
+	({
+		type: 'ADD-MESSAGE'
+	} as const)
+
+export const addNewMessageAC = (newMessage: string) =>
+	({
+		type: 'ADD-NEW-MESSAGE',
+		newMessage: newMessage
+	} as const)
+
+

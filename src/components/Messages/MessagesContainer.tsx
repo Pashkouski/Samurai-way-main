@@ -1,13 +1,9 @@
-import React, {Dispatch} from 'react'
-import s from './Messages.module.css'
-import {
-    addMessageAC,
-    addNewMessageAC, DispatchType
-} from '../../redux/store'
+import React from 'react'
 import Messages from "./Messages";
 import {connect} from "react-redux";
-import {StoreReduxType} from "../../redux/redux-store";
-import {dialogsType, messagesType} from "../../redux/messages-Page-Reducer";
+import {addMessageAC, addNewMessageAC, dialogsType, messagesType} from "../../redux/messages-Page-Reducer";
+import {DispatchType, StoreReduxType} from "../../redux/redux-store";
+
 
 export type mapStateToPropsType = {
     newMessage: string

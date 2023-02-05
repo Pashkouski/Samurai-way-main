@@ -1,4 +1,4 @@
-import {UsersType} from "./users-Page-Reducer";
+import {locationType, UsersType} from "./users-Page-Reducer";
 
 // export type messagesType = {
 //     message: string
@@ -39,73 +39,12 @@ import {UsersType} from "./users-Page-Reducer";
 //     getState: () => RootStateType
 //     dispatch: (action: DispatchType) => void
 // }
-export type DispatchType =
-    | addPosts
-    | updateNewPostText
-    | AddMessageType
-    | AddNewMessageType
-    | followACType
-    | unFollowACType
-    | setUsersACType
-
-export type addPosts = ReturnType<typeof addPostsAC>
-export type updateNewPostText = ReturnType<typeof updateNewPostTextAC>
-export type AddMessageType = ReturnType<typeof addMessageAC>
-export type AddNewMessageType = ReturnType<typeof addNewMessageAC>
-export type followACType = ReturnType<typeof followAC>
-export type unFollowACType = ReturnType<typeof unFollowAC>
-export type setUsersACType = ReturnType<typeof setUsersAC>
 
 
 
 
 
-export const updateNewPostTextAC = (newText: string) =>
-    ({
-        type: 'UPDATE-NEW-POST-TEXT',
-        newText: newText
-    } as const)
 
-export const addPostsAC = () =>
-    ({
-        type: 'ADD-POSTS'
-    } as const)
-
-export const addMessageAC = () =>
-    ({
-        type: 'ADD-MESSAGE'
-    } as const)
-
-export const addNewMessageAC = (newMessage: string) =>
-    ({
-        type: 'ADD-NEW-MESSAGE',
-        newMessage: newMessage
-    } as const)
-
-export const followAC = (userID: number) => {
-    return {
-        type: 'FOLLOW',
-        payload: {
-            userID
-        }
-    } as const
-}
-export const unFollowAC = (userID: number) => {
-    return {
-        type: 'UN-FOLLOW',
-        payload: {
-            userID
-        }
-    } as const
-}
-export const setUsersAC = (users: Array<UsersType>) => {
-    return {
-        type: 'SET-USERS',
-        payload: {
-            users
-        }
-    } as const
-}
 
 
 // export let store: StoreType = {
