@@ -1,4 +1,4 @@
-import {locationType, UsersType} from "./users-Page-Reducer";
+import { UsersType} from "./users-Page-Reducer";
 
 // export type messagesType = {
 //     message: string
