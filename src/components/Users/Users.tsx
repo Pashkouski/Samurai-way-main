@@ -9,16 +9,15 @@ type MessagesPropsType = mapStateToPropsType & mapActionToPropsType
 
 class Users extends React.Component<MessagesPropsType> {
 
-    getUsers = () => {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-                this.props.setUsers(response.data.items)
-            })
+    componentDidMount() {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            this.props.setUsers(response.data.items)
+        })
     }
 
     render() {
         return (
             <>
-                <button onClick={this.getUsers}> getUsers </button>
                 {
                     this.props.users.map(el => {
                             return (
