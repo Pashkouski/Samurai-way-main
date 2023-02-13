@@ -10,15 +10,37 @@ type MessagesPropsType = mapStateToPropsType & mapActionToPropsType
 class Users extends React.Component<MessagesPropsType> {
 
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            this.props.setUsers(response.data.items)
+            this.props.setTotalUsersCount(response.data.totalCount)
+        })
+    }
+    onPageChanged = (pageNumber: number) => {
+        this.props.setCurrentPage(pageNumber)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items)
         })
     }
 
     render() {
+
+        let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+
+        let pages = []
+        for (let i = 1; i <= pageCount; i++) {
+            pages.push(i)
+        }
+
         return (
             <>
-                {
+                <div>
+                    {
+                        pages.map((el, index) => <span className={this.props.currentPage === el ? s.selectedPage : ''}
+                                                       key={index} onClick={()=>this.onPageChanged(el)}>{el}</span>)
+                    }
+
+                </div>
+                <div> {
                     this.props.users.map(el => {
                             return (
                                 <div key={el.id}>
@@ -52,6 +74,7 @@ class Users extends React.Component<MessagesPropsType> {
                             )
                         }
                     )}
+                </div>
             </>
         );
     }

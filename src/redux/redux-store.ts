@@ -1,7 +1,13 @@
 import {combineReducers, legacy_createStore as createStore} from 'redux'
 import {addPosts, ProfilePageReducer, updateNewPostText} from "./profile-Page-Reducer";
 import {AddMessageType, AddNewMessageType, MessagesPageReducer} from "./messages-Page-Reducer";
-import {followACType, setUsersACType, unFollowACType, UsersPageReducer} from "./users-Page-Reducer";
+import {
+    followACType, setCurrentPageACType,
+    setTotalUsersCountACType,
+    setUsersACType,
+    unFollowACType,
+    UsersPageReducer
+} from "./users-Page-Reducer";
 
 
 export type DispatchType =
@@ -12,7 +18,8 @@ export type DispatchType =
     | followACType
     | unFollowACType
     | setUsersACType
-
+    | setCurrentPageACType
+    | setTotalUsersCountACType
 
 
 let reducers = combineReducers({
@@ -22,7 +29,6 @@ let reducers = combineReducers({
 })
 
 export type StoreReduxType = ReturnType<typeof reducers>
-
 
 
 export let store = createStore(reducers)
