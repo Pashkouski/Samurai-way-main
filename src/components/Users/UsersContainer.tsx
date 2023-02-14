@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
 import Users from "./Users";
 import {
-    followAC,
-    setCurrentPageAC,
-    setTotalUsersCountAC,
-    setUsersAC, toggleIsFetchingAC,
-    unFollowAC,
+    follow,
+    setCurrentPage,
+    setTotalUsersCount,
+    setUsers, toggleIsFetching,
+    unFollow,
     UsersType
 } from "../../redux/users-Page-Reducer";
 import {DispatchType, StoreReduxType} from "../../redux/redux-store";
@@ -90,7 +90,7 @@ const mapStateToProps = (state: StoreReduxType): mapStateToPropsType => {
     }
 }
 
-const mapActionToProps = (dispatch: (action: DispatchType) => void): mapActionToPropsType => {
+/*const mapActionToProps = (dispatch: (action: DispatchType) => void): mapActionToPropsType => {
     return {
         follow: (userID: number) => {
             dispatch(followAC(userID))
@@ -111,7 +111,9 @@ const mapActionToProps = (dispatch: (action: DispatchType) => void): mapActionTo
             dispatch(toggleIsFetchingAC(toggle))
         }
     }
-}
-let UsersContainer = connect(mapStateToProps, mapActionToProps)(UsersAPIComponent)
+}*/
+
+let UsersContainer = connect(mapStateToProps,
+    {follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching })(UsersAPIComponent)
 
 export default UsersContainer
