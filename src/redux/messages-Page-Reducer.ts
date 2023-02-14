@@ -58,17 +58,17 @@ export const MessagesPageReducer = (
 
 
 
-export type AddMessageType = ReturnType<typeof addMessageAC>
-export type AddNewMessageType = ReturnType<typeof addNewMessageAC>
+export type AddMessageType = ReturnType<typeof addMessage>
+export type AddNewMessageType = ReturnType<typeof addNewMessage>
 
 
 
-export const addMessageAC = () =>
+export const addMessage = () =>
 	({
 		type: 'ADD-MESSAGE'
 	} as const)
 
-export const addNewMessageAC = (newMessage: string) =>
+export const addNewMessage = (newMessage: string) =>
 	({
 		type: 'ADD-NEW-MESSAGE',
 		newMessage: newMessage

@@ -44,17 +44,17 @@ export const ProfilePageReducer = (
 }
 
 
-export type addPosts = ReturnType<typeof addPostsAC>
-export type updateNewPostText = ReturnType<typeof updateNewPostTextAC>
+export type addPosts = ReturnType<typeof addPost>
+export type updateNewPostText = ReturnType<typeof updatePostText>
 
 
-export const updateNewPostTextAC = (newText: string) =>
+export const updatePostText = (newText: string) =>
 	({
 		type: 'UPDATE-NEW-POST-TEXT',
 		newText: newText
 	} as const)
 
-export const addPostsAC = () =>
+export const addPost = () =>
 	({
 		type: 'ADD-POSTS'
 	} as const)
