@@ -1,0 +1,10 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+
+}
+
+.wrapper img {
+    background-color: green;
+}
+

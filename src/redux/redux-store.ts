@@ -4,7 +4,7 @@ import {AddMessageType, AddNewMessageType, MessagesPageReducer} from "./messages
 import {
     followACType, setCurrentPageACType,
     setTotalUsersCountACType,
-    setUsersACType,
+    setUsersACType, toggleIsFetchingACType,
     unFollowACType,
     UsersPageReducer
 } from "./users-Page-Reducer";
@@ -20,6 +20,7 @@ export type DispatchType =
     | setUsersACType
     | setCurrentPageACType
     | setTotalUsersCountACType
+    | toggleIsFetchingACType
 
 
 let reducers = combineReducers({
