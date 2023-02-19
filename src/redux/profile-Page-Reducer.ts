@@ -8,8 +8,29 @@ export type postDataType = {
 export type profilePageType = {
     postData: Array<postDataType>
     newPostText: string
+	profileUsers: ProfileUsersType
 }
-
+export type ProfileUsersType = {
+	aboutMe: string
+	contacts: {
+		github: string | null
+		vk: string | null
+		facebook: string | null
+		instagram:string | null
+		twitter: string | null
+		website: string | null
+		youtube: string | null
+		mainLink:string | null
+	}
+	lookingForAJob: boolean
+	lookingForAJobDescription: string
+	fullName: string
+	userId: number
+	photos: {
+		small: string | undefined
+		large: string | undefined
+	}
+}
 
 let initialState: profilePageType = {
 	postData: [
@@ -18,7 +39,8 @@ let initialState: profilePageType = {
 		{ id: 2, message: "It's my first post", likesCount: 1 },
 		{ id: 2, message: "It's my first post", likesCount: 1 }
 	],
-	newPostText: ''
+	newPostText: '',
+	profileUsers: {} as ProfileUsersType
 }
 
 
@@ -38,14 +60,17 @@ export const ProfilePageReducer = (
 		case 'UPDATE-NEW-POST-TEXT': {
 			return {...state, newPostText: action.newText}
 		}
+		case 'SET-PROFILE-USERS':
+			return {...state, profileUsers: action.profileUsers}
 		default:
 			return state
 	}
 }
 
 
-export type addPosts = ReturnType<typeof addPost>
-export type updateNewPostText = ReturnType<typeof updatePostText>
+export type addPostsType = ReturnType<typeof addPost>
+export type updateNewPostTextType = ReturnType<typeof updatePostText>
+export type setProfileUsersType = ReturnType<typeof setProfileUsers>
 
 
 export const updatePostText = (newText: string) =>
@@ -58,3 +83,8 @@ export const addPost = () =>
 	({
 		type: 'ADD-POSTS'
 	} as const)
+
+export const setProfileUsers = (profileUsers: ProfileUsersType) => ({
+	type: 'SET-PROFILE-USERS',
+	profileUsers
+} as const)

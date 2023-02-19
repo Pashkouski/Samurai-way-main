@@ -52,7 +52,6 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li className={s.item}>
-
                     <NavLink to='/Music' className={s.link} activeClassName={s.active}>
                         <svg className={s.iconSVG} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -71,7 +70,6 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li className={s.item}>
-
                     <NavLink to='/Settings' className={s.link} activeClassName={s.active}>
                         <svg className={s.iconSVG} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
