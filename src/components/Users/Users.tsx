@@ -30,7 +30,7 @@ const Users = (props: UsersPropsType) => {
                             <div key={el.id}>
                 <span>
                     <div>
-                        <NavLink to={'/Profile' + el.id}>
+                        <NavLink to={'/Profile/' + el.id}>
                              <img className={s.img} src={el.photos.small !== null
                             ? el.photos.small
                             : 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Gyrus_Dentatus_40x.jpg/1008px-Gyrus_Dentatus_40x.jpg'}

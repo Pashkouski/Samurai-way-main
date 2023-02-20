@@ -7,7 +7,7 @@ type ProfilePageType = mapStateToPropsType & mapDispatchToPropsType
 
 const MyPosts = (props: ProfilePageType) => {
 	let postsElements = props.postData.map(p => (
-		<Post id={p.id} message={p.message} likesCount={p.likesCount} />
+		<Post key={p.id} id={p.id} message={p.message} likesCount={p.likesCount} />
 	))
 
 	let newPostElement = React.createRef<HTMLTextAreaElement>()

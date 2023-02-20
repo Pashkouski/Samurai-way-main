@@ -48,6 +48,7 @@ class UsersAPIComponent extends React.Component<MessagesPropsType> {
             <>
                 {this.props.isFetching
                     ? <Users
+
                         pages={pages}
                         currentPage={this.props.currentPage}
                         onPageChanged={this.onPageChanged}

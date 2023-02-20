@@ -10,9 +10,9 @@ type ProfileInfoPropsType = {
 const ProfileInfo = (props: ProfileInfoPropsType) => {
     return (
         <div>
-            <img className={s.img}
+{/*            <img className={s.img}
                 src="https://png.pngtree.com/thumb_back/fw800/png-vector/20200530/ourmid/pngtree-great-wall-scenery-png-image_2214406.jpg"
-                alt=""/>
+                alt=""/>*/}
             <div className={s.DescriptionBlock}>
                 <img src={props.profileUsers.photos?.large} alt=""/>
                </div>

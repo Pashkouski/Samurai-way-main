@@ -9,9 +9,9 @@ export type MessagesPropsType = mapStateToPropsType & mapDispatchToPropsType
 
 const Messages = (props: MessagesPropsType) => {
     let dialogsElements = props.dialogs.map(d => (
-        <DialogItem name={d.name} id={d.id}/>
+        <DialogItem key={d.id} name={d.name} id={d.id}/>
     ))
-    let messagesElement = props.messages.map(m => <Dialog text={m.message}/>)
+    let messagesElement = props.messages.map(m => <Dialog key={m.id} text={m.message}/>)
 
     let newMessageElement = React.createRef<HTMLTextAreaElement>()
 
