@@ -1,4 +1,5 @@
 import {DispatchType} from "./redux-store";
+import {v1} from "uuid";
 
 
 export type messagesPageType = {
@@ -8,29 +9,29 @@ export type messagesPageType = {
 }
 export type dialogsType = {
 	name: string
-	id: number
+	id: string
 }
 export type messagesType = {
 	message: string
-	id: number
+	id: string
 }
 
 
 
 let initialState: messagesPageType = {
 	dialogs: [
-		{ id: 1, name: 'Dimych' },
-		{ id: 2, name: 'Sveta' },
-		{ id: 3, name: 'Alex' },
-		{ id: 4, name: 'Andrey' },
-		{ id: 5, name: 'Andrey' }
+		{ id: v1(), name: 'Dimych' },
+		{ id: v1(), name: 'Sveta' },
+		{ id: v1(), name: 'Alex' },
+		{ id: v1(), name: 'Andrey' },
+		{ id: v1(), name: 'Andrey' }
 	],
 	messages: [
-		{ id: 1, message: 'hi' },
-		{ id: 2, message: 'Hellow' },
-		{ id: 3, message: 'yo' },
-		{ id: 4, message: 'bye' },
-		{ id: 5, message: 'yo' }
+		{ id: v1(), message: 'hi' },
+		{ id: v1(), message: 'Hellow' },
+		{ id: v1(), message: 'yo' },
+		{ id: v1(), message: 'bye' },
+		{ id: v1(), message: 'yo' }
 	],
 	newMessage: ''
 }
@@ -42,7 +43,7 @@ export const MessagesPageReducer = (
 	switch (action.type) {
 		case 'ADD-MESSAGE':
 			const newMessage: messagesType = {
-				"id": 6,
+				id: v1(),
 				"message": state.newMessage
 			}
 		return {...state, messages: [...state.messages, newMessage], newMessage: ''}

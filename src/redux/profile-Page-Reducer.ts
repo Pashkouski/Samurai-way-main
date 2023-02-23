@@ -1,9 +1,10 @@
 import {DispatchType} from "./redux-store";
+import {v1} from "uuid";
 
 export type postDataType = {
     likesCount: number
     message: string
-    id: number
+    id: string
 }
 export type profilePageType = {
     postData: Array<postDataType>
@@ -25,7 +26,7 @@ export type ProfileUsersType = {
 	lookingForAJob: boolean
 	lookingForAJobDescription: string
 	fullName: string
-	userId: number
+	userId: number | string
 	photos: {
 		small: string | undefined
 		large: string | undefined
@@ -34,10 +35,10 @@ export type ProfileUsersType = {
 
 let initialState: profilePageType = {
 	postData: [
-		{ id: 1, message: 'Hi, how are you', likesCount: 12 },
-		{ id: 2, message: "It's my first post", likesCount: 1 },
-		{ id: 2, message: "It's my first post", likesCount: 1 },
-		{ id: 2, message: "It's my first post", likesCount: 1 }
+		{ id: v1(), message: 'Hi, how are you', likesCount: 12 },
+		{ id: v1(), message: "It's my first post", likesCount: 1 },
+		{ id: v1(), message: "It's my first post", likesCount: 1 },
+		{ id: v1(), message: "It's my first post", likesCount: 1 }
 	],
 	newPostText: '',
 	profileUsers: {} as ProfileUsersType
@@ -51,7 +52,7 @@ export const ProfilePageReducer = (
 	switch (action.type) {
 		case 'ADD-POSTS': {
 			const newPost: postDataType = {
-				id: 6,
+				id: v1(),
 				message: state.newPostText,
 				likesCount: 0
 			}
