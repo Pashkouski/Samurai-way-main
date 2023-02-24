@@ -1,7 +1,7 @@
 import React from 'react'
 import Messages from "./Messages";
 import {connect} from "react-redux";
-import {addMessage, addNewMessage, dialogsType, messagesType} from "../../redux/messages-Page-Reducer";
+import {addMessage, addNewMessage, dialogsType, messagesType} from "../../redux/messages-reducer";
 import { StoreReduxType} from "../../redux/redux-store";
 
 

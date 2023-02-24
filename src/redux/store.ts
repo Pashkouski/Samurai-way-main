@@ -113,8 +113,8 @@ import { UsersType} from "./users-Page-Reducer";
 //         return this._state
 //     },
 //     dispatch(action) {
-//         ProfilePageReducer(this._state.profilePage, action)
-//         MessagesPageReducer(this._state.messagesPage, action)
+//         ProfileReducer(this._state.profilePage, action)
+//         MessagesReducer(this._state.messagesPage, action)
 //         this._renderApp(this._state)
 //     }
 // }

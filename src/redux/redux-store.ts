@@ -1,6 +1,6 @@
 import {combineReducers, legacy_createStore as createStore} from 'redux'
-import {ProfilePageReducer} from "./profile-Page-Reducer";
-import {AddMessageType, AddNewMessageType, MessagesPageReducer} from "./messages-Page-Reducer";
+import {ProfileReducer} from "./profile-reducer";
+import {AddMessageType, AddNewMessageType, MessagesReducer} from "./messages-reducer";
 import {
     followACType, setCurrentPageACType,
     setTotalUsersCountACType,
@@ -8,9 +8,10 @@ import {
     unFollowACType,
     UsersPageReducer
 } from "./users-Page-Reducer";
-import {addPostsType} from "./profile-Page-Reducer";
-import {updateNewPostTextType} from "./profile-Page-Reducer";
-import {setProfileUsersType} from "./profile-Page-Reducer";
+import {addPostsType} from "./profile-reducer";
+import {updateNewPostTextType} from "./profile-reducer";
+import {setProfileUsersType} from "./profile-reducer";
+import {authReducer, setUserDataType} from "./auth-Reducer";
 
 
 export type DispatchType =
@@ -25,12 +26,14 @@ export type DispatchType =
     | setTotalUsersCountACType
     | toggleIsFetchingACType
     | setProfileUsersType
+    | setUserDataType
 
 
 let reducers = combineReducers({
-    profilePage: ProfilePageReducer,
-    messagesPage: MessagesPageReducer,
-    usersPage: UsersPageReducer
+    profilePage: ProfileReducer,
+    messagesPage: MessagesReducer,
+    usersPage: UsersPageReducer,
+    auth: authReducer
 })
 
 export type StoreReduxType = ReturnType<typeof reducers>

@@ -45,7 +45,7 @@ let initialState: profilePageType = {
 }
 
 
-export const ProfilePageReducer = (
+export const ProfileReducer = (
 	state: profilePageType = initialState,
 	action: DispatchType
 ) => {

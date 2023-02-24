@@ -9,13 +9,14 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import MessagesPropsContainer from "./components/Messages/MessagesContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 function App() {
     return (
         <BrowserRouter>
             <div className='appWrapper'>
-                <Header/>
+                <HeaderContainer />
                 <Navbar/>
 
                 <div className='appWrapperContent'>

@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Posts.module.css"
-import {postDataType} from "../../../../redux/profile-Page-Reducer";
+import {postDataType} from "../../../../redux/profile-reducer";
 
 
 

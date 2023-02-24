@@ -36,7 +36,7 @@ let initialState: messagesPageType = {
 	newMessage: ''
 }
 
-export const MessagesPageReducer = (
+export const MessagesReducer = (
 	state: messagesPageType = initialState,
 	action: DispatchType
 ) => {

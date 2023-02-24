@@ -1,7 +1,7 @@
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 import {StoreReduxType} from "../../../redux/redux-store";
-import {addPost, postDataType, updatePostText} from "../../../redux/profile-Page-Reducer";
+import {addPost, postDataType, updatePostText} from "../../../redux/profile-reducer";
 
 
 export type mapStateToPropsType = {
