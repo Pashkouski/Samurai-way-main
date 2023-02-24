@@ -16,11 +16,9 @@ const Header = (props: HeaderPropsType) => {
                 alt="img"/>
             <div className={s.loginBlock}>
                 { props.data.isAuth
-                    ? props.data.data.login
+                    ? <NavLink to={`/profile/${props.data.data.id}`}>{props.data.data.login}</NavLink>
                     : <NavLink to={'/login'}> LOGIN </NavLink>
                 }
-
-
             </div>
         </header>
     )
