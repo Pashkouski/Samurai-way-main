@@ -2,10 +2,14 @@ import {combineReducers, legacy_createStore as createStore} from 'redux'
 import {ProfileReducer} from "./profile-reducer";
 import {AddMessageType, AddNewMessageType, MessagesReducer} from "./messages-reducer";
 import {
-    followACType, setCurrentPageACType,
-    setTotalUsersCountACType,
-    setUsersACType, toggleIsFetchingACType,
-    unFollowACType,
+    followType,
+    setCurrentPageType,
+    setTotalUsersCountType,
+    setUsersType,
+    toggleFollowingInProgressType,
+    toggleIsFetchingType,
+    unFollowType,
+
     UsersPageReducer
 } from "./users-Page-Reducer";
 import {addPostsType} from "./profile-reducer";
@@ -19,14 +23,15 @@ export type DispatchType =
     | updateNewPostTextType
     | AddMessageType
     | AddNewMessageType
-    | followACType
-    | unFollowACType
-    | setUsersACType
-    | setCurrentPageACType
-    | setTotalUsersCountACType
-    | toggleIsFetchingACType
+    | followType
+    | unFollowType
+    | setUsersType
+    | setCurrentPageType
+    | setTotalUsersCountType
+    | toggleIsFetchingType
     | setProfileUsersType
     | setUserDataType
+    | toggleFollowingInProgressType
 
 
 let reducers = combineReducers({

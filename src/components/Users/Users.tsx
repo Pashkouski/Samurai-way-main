@@ -5,14 +5,15 @@ import {NavLink} from "react-router-dom";
 import {usersAPI} from "../../api/api";
 
 
-
 type UsersPropsType = {
     pages: number[]
     currentPage: number
-    onPageChanged: (pageNumber: number) => void
     users: UsersType[]
+    followingInProgress: Array<number>
+    onPageChanged: (pageNumber: number) => void
     unFollow: (userID: number) => void
     follow: (userID: number) => void
+    toggleFollowingInProgress: (isFetching: boolean, userId: number) => void
 }
 
 const Users = (props: UsersPropsType) => {
@@ -41,27 +42,34 @@ const Users = (props: UsersPropsType) => {
                     </div>
                     <div>
                         {el.followed
-                            ? <button onClick={() => {
-                                usersAPI.unFollow(el.id).then(data => {
-                                    if (data.resultCode === 0) {
-                                        props.unFollow(el.id)
-                                    }
-                                })
+                            ? <button
+                                disabled={props.followingInProgress.some(id => id == el.id)}
+                                onClick={() => {
+                                    props.toggleFollowingInProgress(true, el.id)
+                                    usersAPI.unFollow(el.id)
+                                        .then(data => {
+                                            if (data.resultCode === 0) {
+                                                props.unFollow(el.id)
+                                            }
+                                            props.toggleFollowingInProgress(false, el.id)
+                                        })
 
-                            }}>unFollow</button>
-                            : <button onClick={() => {
+                                }}>unFollow</button>
+                            : <button disabled={props.followingInProgress.some(id => id == el.id)}
+                                      onClick={() => {
+                                          props.toggleFollowingInProgress(true, el.id)
+                                          usersAPI.Follow(el.id).then(data => {
+                                              if (data.resultCode === 0) {
+                                                  props.follow(el.id)
+                                              }
+                                              props.toggleFollowingInProgress(false, el.id)
+                                          })
 
-                                usersAPI.Follow(el.id).then(data => {
-                                    if (data.resultCode === 0) {
-                                        props.follow(el.id)
-                                    }
-                                })
+
+                                          props.follow(el.id)
 
 
-                                props.follow(el.id)
-
-
-                            }}>Follow</button>}
+                                      }}>Follow</button>}
                     </div>
                 </span>
                                 <span>
