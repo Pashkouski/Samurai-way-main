@@ -2,7 +2,8 @@ import React from 'react';
 import s from "./Users.module.css";
 import {UsersType} from "../../redux/users-Page-Reducer";
 import {NavLink} from "react-router-dom";
-import {Follow, unFollow} from "../../api/api";
+import {usersAPI} from "../../api/api";
+
 
 
 type UsersPropsType = {
@@ -41,7 +42,7 @@ const Users = (props: UsersPropsType) => {
                     <div>
                         {el.followed
                             ? <button onClick={() => {
-                                unFollow(el.id).then(data => {
+                                usersAPI.unFollow(el.id).then(data => {
                                     if (data.resultCode === 0) {
                                         props.unFollow(el.id)
                                     }
@@ -50,7 +51,7 @@ const Users = (props: UsersPropsType) => {
                             }}>unFollow</button>
                             : <button onClick={() => {
 
-                                Follow(el.id).then(data => {
+                                usersAPI.Follow(el.id).then(data => {
                                     if (data.resultCode === 0) {
                                         props.follow(el.id)
                                     }

@@ -11,7 +11,7 @@ import {
 import {StoreReduxType} from "../../redux/redux-store";
 import React from "react";
 import Preloader from "../Preloader/Preloader";
-import {getUsers} from "../../api/api";
+import {usersAPI} from "../../api/api";
 
 
 type MessagesPropsType = mapStateToPropsType & mapActionToPropsType
@@ -21,7 +21,7 @@ class UsersAPIComponent extends React.Component<MessagesPropsType> {
     componentDidMount() {
         this.props.toggleIsFetching(false)
 
-        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.setUsers(data.items)
             this.props.setTotalUsersCount(data.totalCount)
             this.props.toggleIsFetching(true)
@@ -30,7 +30,7 @@ class UsersAPIComponent extends React.Component<MessagesPropsType> {
 
     onPageChanged = (pageNumber: number) => {
         this.props.setCurrentPage(pageNumber)
-        getUsers(pageNumber,  this.props.pageSize).then(data => {
+        usersAPI.getUsers(pageNumber,  this.props.pageSize).then(data => {
             this.props.setUsers(data.items)
         })
     }
