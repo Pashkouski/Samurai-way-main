@@ -1,6 +1,7 @@
-import {combineReducers, legacy_createStore as createStore} from 'redux'
+import {applyMiddleware, combineReducers, legacy_createStore as createStore} from 'redux'
 import {ProfileReducer} from "./profile-reducer";
 import {AddMessageType, AddNewMessageType, MessagesReducer} from "./messages-reducer";
+import thunkMiddleware from 'redux-thunk'
 import {
     followType,
     setCurrentPageType,
@@ -44,7 +45,7 @@ let reducers = combineReducers({
 export type StoreReduxType = ReturnType<typeof reducers>
 
 
-export let store = createStore(reducers)
+export let store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
 
 
