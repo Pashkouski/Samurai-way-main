@@ -1,5 +1,8 @@
 import {DispatchType} from "./redux-store";
 import {v1} from "uuid";
+import {Dispatch} from "redux";
+import {profileAPI, usersAPI} from "../api/api";
+import {toggleFollowingInProgress, unFollow} from "./users-Page-Reducer";
 
 export type postDataType = {
     likesCount: number
@@ -89,3 +92,14 @@ export const setProfileUsers = (profileUsers: ProfileUsersType) => ({
 	type: 'SET-PROFILE-USERS',
 	profileUsers
 } as const)
+
+
+export const getProfileUserThunkCreator = (userId: string) => {
+	return (dispatch: Dispatch) => {
+		profileAPI.getProfileUser(userId)
+			.then(data => {
+				dispatch(setProfileUsers(data))
+			})
+	}
+}
+
