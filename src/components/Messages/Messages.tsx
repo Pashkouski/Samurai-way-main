@@ -2,9 +2,8 @@ import React from 'react'
 import s from './Messages.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Dialog from './Dialog/Dialog'
-
 import {mapDispatchToPropsType, mapStateToPropsType} from "./MessagesContainer";
-import {Redirect} from "react-router-dom";
+
 
 export type MessagesPropsType = mapStateToPropsType & mapDispatchToPropsType
 
@@ -26,8 +25,6 @@ const Messages = (props: MessagesPropsType) => {
             props.addNewMessage(body)
         }
     }
-
-   if( !props.isAuth ) return <Redirect to={'/login'}/>
 
     return (
         <div className={s.dialogs}>

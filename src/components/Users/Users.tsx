@@ -13,12 +13,12 @@ type UsersPropsType = {
     onPageChanged: (pageNumber: number) => void
     followThunkCreator: (id: number) => void
     unFollowThunkCreator: (id: number) => void
-    isAuth: boolean
+
 }
 
 const Users = (props: UsersPropsType) => {
 
-    if( !props.isAuth ) return <Redirect to={'/login'}/>
+
 
     return (
         <>

@@ -12,12 +12,7 @@ const Profile = (props: ProfilePropsType) => {
 	return (
 		<div>
 			<ProfileInfo profileUsers={props.profileUsers}/>
-			<MyPostsContainer
-				// store={props.store}
-				// postData={props.store.getState().profilePage.postData}
-				// dispatch={props.store.dispatch}
-				// newPostText={props.store.getState().profilePage.newPostText}
-			/>
+			<MyPostsContainer/>
 		</div>
 	)
 }

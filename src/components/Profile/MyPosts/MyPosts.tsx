@@ -2,7 +2,7 @@ import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Posts/Posts'
 import {mapDispatchToPropsType, mapStateToPropsType} from "./MyPostsContainer";
-import {Redirect} from "react-router-dom";
+
 
 type ProfilePageType = mapStateToPropsType & mapDispatchToPropsType
 
@@ -24,7 +24,6 @@ const MyPosts = (props: ProfilePageType) => {
 		}
 	}
 
-	if( !props.isAuth ) return <Redirect to={'/login'}/>
 
 	return (
 		<div className={s.container}>

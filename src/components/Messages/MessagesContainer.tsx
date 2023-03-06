@@ -3,13 +3,13 @@ import Messages from "./Messages";
 import {connect} from "react-redux";
 import {addMessage, addNewMessage, dialogsType, messagesType} from "../../redux/messages-reducer";
 import { StoreReduxType} from "../../redux/redux-store";
+import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
 
 
 export type mapStateToPropsType = {
     newMessage: string
     dialogs: Array<dialogsType>
     messages: Array<messagesType>
-    isAuth: boolean
 }
 
 export type mapDispatchToPropsType = {
@@ -23,10 +23,9 @@ const mapStateToProps = (state: StoreReduxType) : mapStateToPropsType => {
         newMessage: state.messagesPage.newMessage,
         dialogs: state.messagesPage.dialogs,
         messages: state.messagesPage.messages,
-        isAuth: state.auth.isAuth
     }
 }
 
-let MessagesPropsContainer = connect(mapStateToProps, {addNewMessage, addMessage})(Messages);
+let MessagesPropsContainer = WithAuthRedirect(connect(mapStateToProps, {addNewMessage, addMessage})(Messages));
 
 export default MessagesPropsContainer

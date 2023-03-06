@@ -7,7 +7,7 @@ import {addPost, postDataType, updatePostText} from "../../../redux/profile-redu
 export type mapStateToPropsType = {
     postData: Array<postDataType>
     newPostText: string
-    isAuth: boolean
+
 }
 
 export type mapDispatchToPropsType = {
@@ -19,23 +19,10 @@ const mapStateToProps = (state: StoreReduxType): mapStateToPropsType => {
     return {
         postData: state.profilePage.postData,
         newPostText: state.profilePage.newPostText,
-        isAuth: state.auth.isAuth
     }
 
 }
 
-/*
-const mapDispatchToProps = (dispatch: (action: DispatchType) => void):mapDispatchToPropsType => {
-    return {
-        addPost: () => {
-            dispatch(addPostsAC())
-        },
-        updatePostText: (text: string) => {
-            dispatch(updateNewPostTextAC(text))
-        }
-    }
-}
-*/
 
 let MyPostsContainer = connect(mapStateToProps, {addPost, updatePostText})(MyPosts)
 
