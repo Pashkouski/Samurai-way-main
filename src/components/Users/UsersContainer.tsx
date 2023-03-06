@@ -11,7 +11,7 @@ import React from "react";
 import Preloader from "../Preloader/Preloader";
 
 
-type MessagesPropsType = mapStateToPropsType & mapActionToPropsType
+export type MessagesPropsType = mapStateToPropsType & mapActionToPropsType
 
 class UsersAPIComponent extends React.Component<MessagesPropsType> {
 
@@ -44,6 +44,7 @@ class UsersAPIComponent extends React.Component<MessagesPropsType> {
                         followingInProgress={this.props.followingInProgress}
                         followThunkCreator={this.props.followThunkCreator}
                         unFollowThunkCreator={this.props.unFollowThunkCreator}
+                        isAuth={this.props.isAuth}
                     />
                     : <Preloader/>}
 
@@ -60,6 +61,7 @@ export type mapStateToPropsType = {
     currentPage: number
     isFetching: boolean
     followingInProgress: Array<number>
+    isAuth: boolean
 }
 export type mapActionToPropsType = {
     getUsersThunkCreator: (currentPage: number, pageSize: number) => void
@@ -76,7 +78,8 @@ const mapStateToProps = (state: StoreReduxType): mapStateToPropsType => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        followingInProgress: state.usersPage.followingInProgress,
+        isAuth: state.auth.isAuth
     }
 }
 

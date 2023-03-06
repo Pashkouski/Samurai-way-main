@@ -7,6 +7,7 @@ import {addPost, postDataType, updatePostText} from "../../../redux/profile-redu
 export type mapStateToPropsType = {
     postData: Array<postDataType>
     newPostText: string
+    isAuth: boolean
 }
 
 export type mapDispatchToPropsType = {
@@ -17,7 +18,8 @@ export type mapDispatchToPropsType = {
 const mapStateToProps = (state: StoreReduxType): mapStateToPropsType => {
     return {
         postData: state.profilePage.postData,
-        newPostText: state.profilePage.newPostText
+        newPostText: state.profilePage.newPostText,
+        isAuth: state.auth.isAuth
     }
 
 }

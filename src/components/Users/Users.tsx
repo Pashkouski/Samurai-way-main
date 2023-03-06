@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Users.module.css";
 import {UsersType} from "../../redux/users-Page-Reducer";
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
 
 
@@ -13,9 +13,13 @@ type UsersPropsType = {
     onPageChanged: (pageNumber: number) => void
     followThunkCreator: (id: number) => void
     unFollowThunkCreator: (id: number) => void
+    isAuth: boolean
 }
 
 const Users = (props: UsersPropsType) => {
+
+    if( !props.isAuth ) return <Redirect to={'/login'}/>
+
     return (
         <>
             <div>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import {authThunkCreator, initialStateauthReducerType} from "../redux/auth-Reducer";
 
 
 const instance = axios.create({
@@ -34,6 +35,15 @@ export const usersAPI = {
 export const profileAPI = {
     getProfileUser(userId: string) {
         return instance.get(`profile/${userId}`)
+            .then(response => {
+                return response.data
+            })
+    }
+}
+
+export const authAPI = {
+    auth() {
+        return instance.get<initialStateauthReducerType>(`auth/me`)
             .then(response => {
                 return response.data
             })

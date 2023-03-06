@@ -1,15 +1,14 @@
-import {initialStateauthReducerType, setUserData} from "../../redux/auth-Reducer";
+import {authThunkCreator, initialStateauthReducerType, setUserData} from "../../redux/auth-Reducer";
 import {StoreReduxType} from "../../redux/redux-store";
 import axios from "axios";
 import Header from "./Header";
 import React from 'react'
 import {connect} from "react-redux";
+import {authAPI} from "../../api/api";
 
 class HeaderContainer extends React.Component<MessagesPropsType> {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true}).then(response => {
-            this.props.setUserData(response.data)
-        })
+        this.props.authThunkCreator()
     }
 
     render() {
@@ -27,7 +26,7 @@ type mapStateToPropsType = {
 }
 
 type mapActionToPropsType = {
-    setUserData: (data: initialStateauthReducerType) => void
+    authThunkCreator: () => void
 }
 
 const MapStateToProps = (state: StoreReduxType): mapStateToPropsType => {
@@ -36,4 +35,4 @@ const MapStateToProps = (state: StoreReduxType): mapStateToPropsType => {
     }
 }
 
-export default connect(MapStateToProps, {setUserData})(HeaderContainer);
+export default connect(MapStateToProps, {authThunkCreator})(HeaderContainer);

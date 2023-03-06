@@ -9,6 +9,7 @@ export type mapStateToPropsType = {
     newMessage: string
     dialogs: Array<dialogsType>
     messages: Array<messagesType>
+    isAuth: boolean
 }
 
 export type mapDispatchToPropsType = {
@@ -21,19 +22,11 @@ const mapStateToProps = (state: StoreReduxType) : mapStateToPropsType => {
     return {
         newMessage: state.messagesPage.newMessage,
         dialogs: state.messagesPage.dialogs,
-        messages: state.messagesPage.messages
+        messages: state.messagesPage.messages,
+        isAuth: state.auth.isAuth
     }
 }
-// const mapDispatchToProps = (dispatch:(action: DispatchType) => void) : mapDispatchToPropsType=> {
-//     return {
-//         addNewMessage: (body: string) => {
-//             addNewMessage: dispatch(addNewMessageAC(body))
-//         },
-//         addMessage: () => {
-//             addMessage:  dispatch(addMessageAC())
-//         }
-//     }
-// }
+
 let MessagesPropsContainer = connect(mapStateToProps, {addNewMessage, addMessage})(Messages);
 
 export default MessagesPropsContainer
