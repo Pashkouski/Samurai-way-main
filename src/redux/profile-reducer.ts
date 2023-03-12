@@ -1,8 +1,8 @@
 import {DispatchType} from "./redux-store";
 import {v1} from "uuid";
 import {Dispatch} from "redux";
-import {profileAPI, usersAPI} from "../api/api";
-import {toggleFollowingInProgress, unFollow} from "./users-Page-Reducer";
+import {profileAPI} from "../api/api";
+
 
 export type postDataType = {
     likesCount: number

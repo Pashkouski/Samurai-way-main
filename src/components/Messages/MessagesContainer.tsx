@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {addMessage, addNewMessage, dialogsType, messagesType} from "../../redux/messages-reducer";
 import { StoreReduxType} from "../../redux/redux-store";
 import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
+import {compose} from "redux";
 
 
 export type mapStateToPropsType = {
@@ -26,6 +27,9 @@ const mapStateToProps = (state: StoreReduxType) : mapStateToPropsType => {
     }
 }
 
-let MessagesPropsContainer = WithAuthRedirect(connect(mapStateToProps, {addNewMessage, addMessage})(Messages));
 
-export default MessagesPropsContainer
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, {addNewMessage, addMessage}),
+    WithAuthRedirect
+)(Messages)
+

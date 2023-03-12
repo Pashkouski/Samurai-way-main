@@ -10,6 +10,7 @@ import {StoreReduxType} from "../../redux/redux-store";
 import React from "react";
 import Preloader from "../Preloader/Preloader";
 import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
+import {compose} from "redux";
 
 
 export type MessagesPropsType = mapStateToPropsType & mapActionToPropsType
@@ -82,10 +83,19 @@ const mapStateToProps = (state: StoreReduxType): mapStateToPropsType => {
 }
 
 
-let UsersContainer = WithAuthRedirect(connect(mapStateToProps,
+/*
+export const WithAutewqhRedirect(connect(mapStateToProps,
     {
         followThunkCreator, unFollowThunkCreator,
         getUsersThunkCreator, onPageChangedThunkCreator
-    })(UsersAPIComponent))
+    })(UsersAPIComponent))*/
 
-export default UsersContainer
+
+export default compose<React.ComponentType>(
+    WithAuthRedirect,
+    connect(mapStateToProps,
+        {
+            followThunkCreator, unFollowThunkCreator,
+            getUsersThunkCreator, onPageChangedThunkCreator
+        })
+)(UsersAPIComponent)

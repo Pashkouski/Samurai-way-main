@@ -1,5 +1,5 @@
 import axios from "axios";
-import {authThunkCreator, initialStateauthReducerType} from "../redux/auth-Reducer";
+import {initialStateauthReducerType} from "../redux/auth-Reducer";
 
 
 const instance = axios.create({

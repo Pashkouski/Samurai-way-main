@@ -8,7 +8,7 @@ import {
 import {StoreReduxType} from "../../redux/redux-store";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {WithAuthRedirect} from "../../HOC/withAuthRedirect";
-
+import {compose} from "redux";
 
 export type mapDispatchToPropsType = {
     getProfileUserThunkCreator: (id: string) => void
@@ -50,7 +50,9 @@ class ProfileContainer extends React.Component<PropsType> {
         )
     }
 }
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, {getProfileUserThunkCreator}),
+    withRouter,
+    WithAuthRedirect
+) (ProfileContainer)
 
-let withUrlDataContainerComponent = withRouter(ProfileContainer)
-
-export default WithAuthRedirect(connect(mapStateToProps, {getProfileUserThunkCreator})(withUrlDataContainerComponent))
