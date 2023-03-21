@@ -1,19 +1,44 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 
 
 type ProfileStatusType = {
     status: string
+    updateStatus: (status: string) => void
 }
 
 
 class ProfileStatus extends React.Component<ProfileStatusType> {
+
+
     state = {
-        editMode: true
+        editMode: false,
+        status: this.props.status
     }
 
-    activateEditMode = (props: boolean) => {
-        this.setState( {
-            editMode: props
+    activateEditMode = () => {
+        this.setState({
+            editMode: true
+        })
+    }
+    deactivateEditMode = () => {
+        this.setState({
+            editMode: false
+        })
+        this.props.updateStatus(this.state.status)
+    }
+
+/*        activateEditMode = (status: boolean) => {
+            this.setState({
+                editMode: status
+            })
+            if (status) {
+                this.props.updateStatus(this.state.status)
+            }
+        }*/
+
+    onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            status: e.currentTarget.value
         })
     }
 
@@ -22,10 +47,16 @@ class ProfileStatus extends React.Component<ProfileStatusType> {
             <div>
                 {this.state.editMode
                     ? <div>
-                        <span onDoubleClick={()=>this.activateEditMode(false)}> {this.props.status} </span>
+                        <input
+                            onChange={this.onChangeHandler}
+                            value={this.state.status}
+                            onBlur={this.deactivateEditMode}
+                            autoFocus
+                        />
                     </div>
                     : <div>
-                        <input value={this.props.status} onBlur={()=>this.activateEditMode(true)} autoFocus/>
+                        <span
+                            onDoubleClick={this.activateEditMode}> {this.props.status ? this.props.status : 'no status'} </span>
                     </div>
                 }
             </div>

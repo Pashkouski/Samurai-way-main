@@ -1,5 +1,5 @@
 import {applyMiddleware, combineReducers, legacy_createStore as createStore} from 'redux'
-import {ProfileReducer} from "./profile-reducer";
+import {ProfileReducer, setStatusType} from "./profile-reducer";
 import {AddMessageType, AddNewMessageType, MessagesReducer} from "./messages-reducer";
 import thunkMiddleware from 'redux-thunk'
 import {
@@ -33,6 +33,7 @@ export type DispatchType =
     | setProfileUsersType
     | setUserDataType
     | toggleFollowingInProgressType
+    | setStatusType
 
 
 let reducers = combineReducers({
