@@ -27,20 +27,29 @@ class ProfileStatus extends React.Component<ProfileStatusType> {
         this.props.updateStatus(this.state.status)
     }
 
-/*        activateEditMode = (status: boolean) => {
-            this.setState({
-                editMode: status
-            })
-            if (status) {
-                this.props.updateStatus(this.state.status)
-            }
-        }*/
+    /*        activateEditMode = (status: boolean) => {
+                this.setState({
+                    editMode: status
+                })
+                if (status) {
+                    this.props.updateStatus(this.state.status)
+                }
+            }*/
 
     onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         this.setState({
             status: e.currentTarget.value
         })
     }
+
+    componentDidUpdate(prevProps: Readonly<ProfileStatusType>, prevState: Readonly<ProfileStatusType>) {
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
+
 
     render() {
         return (
