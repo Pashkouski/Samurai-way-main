@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Users.module.css";
 import {UsersType} from "../../redux/users-Page-Reducer";
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 
 
@@ -46,11 +46,11 @@ const Users = (props: UsersPropsType) => {
                     <div>
                         {el.followed
                             ? <button
-                                disabled={props.followingInProgress.some(id => id == el.id)}
+                                disabled={props.followingInProgress.some(id => id === el.id)}
                                 onClick={() => {
                                     props.unFollowThunkCreator(el.id)
                                 }}>unFollow</button>
-                            : <button disabled={props.followingInProgress.some(id => id == el.id)}
+                            : <button disabled={props.followingInProgress.some(id => id === el.id)}
                                       onClick={() => {
                                           props.followThunkCreator(el.id)
                                       }}>Follow</button>}

@@ -1,9 +1,6 @@
-import {v1} from "uuid";
 import {DispatchType} from "./redux-store";
 import {Dispatch} from "redux";
-import {authAPI, usersAPI} from "../api/api";
-import {toggleFollowingInProgress, unFollow} from "./users-Page-Reducer";
-
+import {authAPI} from "../api/api";
 
 export type initialStateauthReducerType = {
     data: {
