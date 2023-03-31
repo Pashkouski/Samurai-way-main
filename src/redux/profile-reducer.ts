@@ -58,14 +58,14 @@ export const ProfileReducer = (
         case 'ADD-POSTS': {
             const newPost: postDataType = {
                 id: v1(),
-                message: state.newPostText,
+                message: action.newText,
                 likesCount: 0
             }
             return {...state, postData: [newPost, ...state.postData], newPostText: ''}
         }
-        case 'UPDATE-NEW-POST-TEXT': {
+/*        case 'UPDATE-NEW-POST-TEXT': {
             return {...state, newPostText: action.newText}
-        }
+        }*/
         case 'SET-PROFILE-USERS':
             return {...state, profileUsers: action.profileUsers}
         case 'SET_STATUS': {
@@ -78,20 +78,23 @@ export const ProfileReducer = (
 
 
 export type addPostsType = ReturnType<typeof addPost>
-export type updateNewPostTextType = ReturnType<typeof updatePostText>
+/*export type updateNewPostTextType = ReturnType<typeof updatePostText>*/
 export type setProfileUsersType = ReturnType<typeof setProfileUsers>
 export type setStatusType = ReturnType<typeof setStatus>
 
 
+/*
 export const updatePostText = (newText: string) =>
     ({
         type: 'UPDATE-NEW-POST-TEXT',
         newText: newText
     } as const)
+*/
 
-export const addPost = () =>
+export const addPost = (newText: string) =>
     ({
-        type: 'ADD-POSTS'
+        type: 'ADD-POSTS',
+        newText: newText
     } as const)
 
 export const setProfileUsers = (profileUsers: ProfileUsersType) => ({

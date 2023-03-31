@@ -44,13 +44,12 @@ export const MessagesReducer = (
 		case 'ADD-MESSAGE':
 			const newMessage: messagesType = {
 				id: v1(),
-				"message": state.newMessage
+				"message": action.newMessage
 			}
 		return {...state, messages: [...state.messages, newMessage], newMessage: ''}
-
-		case 'ADD-NEW-MESSAGE':
+/*		case 'ADD-NEW-MESSAGE':
 			// state.newMessage = action.newMessage
-			return {...state, newMessage: action.newMessage}
+			return {...state, newMessage: action.newMessage}*/
 		default:
 			return state
 
@@ -60,19 +59,20 @@ export const MessagesReducer = (
 
 
 export type AddMessageType = ReturnType<typeof addMessage>
-export type AddNewMessageType = ReturnType<typeof addNewMessage>
+/*export type AddNewMessageType = ReturnType<typeof addNewMessage>*/
 
 
 
-export const addMessage = () =>
+export const addMessage = (newMessage: string) =>
 	({
-		type: 'ADD-MESSAGE'
+		type: 'ADD-MESSAGE',
+		newMessage: newMessage
 	} as const)
 
-export const addNewMessage = (newMessage: string) =>
+/*export const addNewMessage = (newMessage: string) =>
 	({
 		type: 'ADD-NEW-MESSAGE',
 		newMessage: newMessage
-	} as const)
+	} as const)*/
 
 

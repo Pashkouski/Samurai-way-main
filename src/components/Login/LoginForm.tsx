@@ -1,7 +1,13 @@
 import React from 'react';
-import {Field, reduxForm} from "redux-form";
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
 
-const LoginForm = (props: any) => {
+export interface IFormData {
+    login: string
+    password: string
+    rememberMe: boolean
+}
+
+const LoginForm: React.FC<InjectedFormProps<IFormData>> = (props: any) => {
     return (
         <form action="" onSubmit={props.handleSubmit}>
             <div><Field type="text" placeholder={'login'} name={'login'} component={'input'}/></div>
@@ -13,5 +19,5 @@ const LoginForm = (props: any) => {
         </form>
     );
 };
-let LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
+let LoginReduxForm = reduxForm<IFormData>({form: 'login'})(LoginForm)
 export default LoginReduxForm;

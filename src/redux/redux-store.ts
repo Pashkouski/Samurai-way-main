@@ -1,6 +1,6 @@
 import {applyMiddleware, combineReducers, legacy_createStore as createStore, Reducer} from 'redux'
 import {ProfileReducer, setStatusType} from "./profile-reducer";
-import {AddMessageType, AddNewMessageType, MessagesReducer} from "./messages-reducer";
+import {AddMessageType, MessagesReducer} from "./messages-reducer";
 import thunkMiddleware from 'redux-thunk'
 import { reducer as formReducer } from 'redux-form'
 import {
@@ -14,7 +14,6 @@ import {
     UsersPageReducer
 } from "./users-Page-Reducer";
 import {addPostsType} from "./profile-reducer";
-import {updateNewPostTextType} from "./profile-reducer";
 import {setProfileUsersType} from "./profile-reducer";
 import {authReducer, setUserDataType} from "./auth-Reducer";
 
@@ -22,9 +21,9 @@ import {authReducer, setUserDataType} from "./auth-Reducer";
 
 export type DispatchType =
     | addPostsType
-    | updateNewPostTextType
+/*    | updateNewPostTextType*/
     | AddMessageType
-    | AddNewMessageType
+/*    | AddNewMessageType*/
     | followType
     | unFollowType
     | setUsersType
@@ -55,4 +54,7 @@ export let store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
 
 
+
+// @ts-ignore
+window.store = store
 
